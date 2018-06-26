@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/oneRowDfHeader"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/statusColor"
+            android:layout_width="5dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="" />
+        <TextView
+            android:textColor="@color/colorAccent"
+            android:id="@+id/txtUnitNo"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="5"
+            android:text="Unit No." />
+        <TextView
+            android:id="@+id/txtCraeteDefectDate"
+            android:textColor="@color/colorAccent"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="3"
+            android:text="26/03/1996" />
+    </LinearLayout>
+</LinearLayout>

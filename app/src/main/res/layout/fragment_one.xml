@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroudFrag"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.example.vnthiu.demodefect.Card
+        android:id="@+id/userCard"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        app:my_icon="@drawable/detail"
+        app:my_title_1="User management"
+        app:my_title_2="0 user available"
+        app:my_bg="@color/bluemin"/>
+
+    <com.example.vnthiu.demodefect.Card
+        android:id="@+id/defectCard"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        app:my_icon="@drawable/tradename"
+        app:my_title_1="Defect management"
+        app:my_title_2="0 defects"
+        app:my_bg="@color/bluemin" />
+    <com.example.vnthiu.demodefect.Card
+        android:id="@+id/reportCard"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        app:my_icon="@drawable/tradename"
+        app:my_title_1="Add defect"
+        app:my_title_2="Create new"
+        app:my_bg="@color/bluemin" />
+    <com.example.vnthiu.demodefect.Card
+        android:id="@+id/reviewCard"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        app:my_icon="@drawable/tradename"
+        app:my_title_1="Your report"
+        app:my_title_2="View your defect"
+        app:my_bg="@color/bluemin" />
+</LinearLayout>

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_weight="10">
+    <ScrollView
+        android:layout_weight="9"
+        android:clipToPadding="true"
+        android:fillViewport="false"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.5"
+                android:text="Defect Detail"
+                android:textAlignment="center"
+                android:textColor="@color/myDarkText"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.5"
+                android:text="Location:"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/txtLocation"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.5"
+                android:text="defect place"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5">
+
+                <Spinner
+                    android:id="@+id/placeDTSpin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:textSize="17dp"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.5"
+                android:text="Trade name:"
+                android:textColor="@color/colorAccent" />
+
+
+            <TextView
+                android:id="@+id/txtTrade"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.5"
+                android:text="trade_name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5">
+                <Spinner
+                    android:visibility="gone"
+                    android:id="@+id/tradeDTSpin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.5"
+                android:text="Description:"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/txtDes"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.5"
+                android:text="description_detail"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                >
+                <Spinner
+                    android:visibility="gone"
+                    android:id="@+id/descriptionDTSpin"
+                    android:textSize="17dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.5"
+                android:text="Date create:"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/txtDateCreate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.5"
+                android:text="20/2/1698"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.5"
+                android:text="Assign to:"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/txtAssign"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0.5"
+                android:text="contractor name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.5"
+                android:text="Note:"
+                android:textColor="@color/colorAccent" />
+            <TextView
+                android:id="@+id/txtNote"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="0.5"
+                android:text="some note"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp" />
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/editNote"
+                android:layout_weight="0.5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp"/>
+            <EditText
+                android:layout_weight="0.5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textSize="18dp"
+                android:visibility="gone"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.7"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2.5"
+                    android:text="Completed:"
+                    android:textColor="@color/colorAccent" />
+
+                <CheckBox
+                    android:id="@+id/checkComplete"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewDownload"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/picture" />
+
+            <ImageView
+                android:id="@+id/imageAfterClose"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/picture" />
+        </LinearLayout>
+    </ScrollView>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:weightSum="12"
+            android:orientation="horizontal"
+            android:layout_marginLeft="-20dp">
+
+
+            <Button
+                android:id="@+id/editDefectDetail"
+                android:textAlignment="center"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="Edit"
+                />
+
+            <Button
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="Home"
+                android:onClick="go_to_homescreen"
+                />
+
+            <Button
+                android:id="@+id/CloseDefectBtn"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="Close Defect" />
+        </LinearLayout>
+
+</LinearLayout>

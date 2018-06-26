@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="10"
+    android:orientation="vertical"
+    android:background="@color/backgroudFrag"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/man" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/usernameLayout"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/man" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Username:"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/txtUserName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="95dp"
+                android:layout_weight="9"
+                android:text="user name"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/username" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="Full name"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/txtFullName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="95dp"
+                android:layout_weight="9"
+                android:text="John Son"
+                android:textSize="13dp"
+                android:textColor="@color/colorPrimaryDark" />
+            <EditText
+                android:id="@+id/editFullName"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="95dp"
+                android:layout_weight="9"
+                android:text="John Son"
+                android:textSize="12dp"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimaryDark" />
+            <Button
+                android:id="@+id/editNamebtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/edit" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/email" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Email"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="95dp"
+                android:layout_weight="9"
+                android:text="johnson123@gmail.com"
+                android:textSize="13dp"
+                android:textColor="@color/colorPrimaryDark" />
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="0dp"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="95dp"
+                android:layout_weight="9"
+                android:textSize="12dp"
+                android:text="johnson123@gmail.com"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorPrimaryDark" />
+            <Button
+                android:id="@+id/editEmailbtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/edit" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/phone" />
+
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Phone number"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/txtPhoneNum"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="95dp"
+                android:layout_weight="9"
+                android:text="+84 12000 1556"
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
+            <EditText
+                android:id="@+id/editPhone"
+                android:layout_width="0dp"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="95dp"
+                android:layout_weight="9"
+                android:textSize="12dp"
+                android:text="+84 12000 1556"
+                android:inputType="phone"
+                android:textColor="@color/colorPrimaryDark" />
+            <Button
+                android:id="@+id/editPhonebtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/edit" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/engineer" />
+
+            <TextView
+                android:id="@+id/tvLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Occupation"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/txtLevel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="95dp"
+                android:layout_weight="9"
+                android:text="Constractor"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="12">
+
+        <Button
+            android:id="@+id/logoutbtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@color/colorPrimary"
+            android:text="Log out" />
+
+        <Button
+            android:id="@+id/resetPassbtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@color/colorPrimaryDark"
+            android:text="Reset password" />
+
+        <Button
+            android:id="@+id/saveInfoBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            android:background="@color/colorPrimary"
+            android:text="Save" />
+    </LinearLayout>
+
+</LinearLayout>

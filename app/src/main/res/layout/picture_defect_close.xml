@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/backgroudFrag"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:weightSum="10">
+    <TextView
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textAlignment="center"
+        android:textSize="17dp"
+        android:textColor="@color/myDarkText"
+        android:text="Close Defect"/>
+    <ImageView
+        android:id="@+id/imgCloseDefect"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        app:srcCompat="@drawable/picture" />
+    <Space
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+    <LinearLayout
+        android:layout_weight="1.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+        <Button
+            android:id="@+id/takePicture"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorPrimary"
+            android:text="Take Picture"/>
+        <Button
+            android:id="@+id/submitCloseDefect"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorPrimary"
+            android:text="Submit"/>
+    </LinearLayout>
+</LinearLayout>
