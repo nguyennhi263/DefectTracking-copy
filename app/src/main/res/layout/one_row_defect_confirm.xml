@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_weight="4"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
         <TextView
@@ -19,13 +19,14 @@
             android:text="Room"
             android:layout_weight="2"
             android:layout_width="match_parent"
-            android:layout_height="0dp" />
+            android:layout_height="0dp"
+            android:paddingLeft="5dp"/>
 
         <ImageView
             android:id="@+id/imageConfirm"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:maxHeight="1dp"/>
+            android:maxHeight="1dp"
+            android:layout_weight="6"/>
     </LinearLayout>
     <LinearLayout
         android:layout_weight="6.5"
@@ -34,12 +35,14 @@
         android:orientation="vertical"
         android:weightSum="10">
         <TextView
+            android:padding="2dp"
             android:id="@+id/tradeConfirm"
             android:layout_weight="5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="Trade name"/>
         <TextView
+            android:padding="5dp"
             android:id="@+id/descriptionConfirm"
             android:layout_weight="5"
             android:layout_width="match_parent"
@@ -60,6 +63,9 @@
             android:layout_weight="3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/error" />
+            android:background="@drawable/error"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"/>
     </LinearLayout>
 </LinearLayout>
