@@ -43,7 +43,7 @@
         android:id="@+id/imageView8"
         android:layout_width="50dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
@@ -71,9 +71,12 @@
     <ListView
         android:id="@+id/defectItemConfirmListview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="@color/White"
-        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_defect_footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"></ListView>
 
     <LinearLayout
