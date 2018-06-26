@@ -96,7 +96,8 @@
             android:layout_weight="1"
             android:background="@color/Orange"
             android:onClick="go_to_back_screen"
-            android:text="Back" />
+            android:text="Back"
+            android:layout_marginRight="1dp"/>
 
         <Button
             android:id="@+id/a"
@@ -105,7 +106,9 @@
             android:layout_weight="1"
             android:background="@color/Orange"
             android:onClick="go_to_home_screen"
-            android:text="Home" />
+            android:text="Home"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"/>
 
         <Button
             android:id="@+id/submitDefectBtn"
@@ -113,7 +116,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/Orange"
-            android:text="Submit" />
+            android:text="Submit"
+            android:layout_marginLeft="1dp"/>
     </LinearLayout>
 
 
