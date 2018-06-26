@@ -1,107 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="12"
     tools:context="vn.com.ifca.defecttracking.Activities.DefectManagementActivity">
-     <LinearLayout
-         android:layout_weight="2"
-         android:orientation="vertical"
-         android:layout_width="match_parent"
-         android:weightSum="10"
-         android:layout_height="0dp">
-         <LinearLayout
-             android:layout_weight="5"
-             android:orientation="horizontal"
-             android:weightSum="10"
-             android:layout_width="match_parent"
-             android:layout_height="0dp">
-             <LinearLayout
-                 android:layout_weight="5"
-                 android:orientation="horizontal"
-                 android:weightSum="10"
-                 android:layout_width="0dp"
-                 android:layout_height="match_parent">
-                 <TextView
-                     android:layout_weight="3"
-                     android:layout_width="0dp"
-                     android:layout_height="match_parent"
-                     android:text="Project"/>
-                 <Spinner
-                     android:id="@+id/spProject"
-                     android:layout_gravity="top"
-                     android:layout_weight="7"
-                     android:layout_width="0dp"
-                     android:layout_height="match_parent"></Spinner>
-             </LinearLayout>
-             <LinearLayout
-                 android:layout_weight="5"
-                 android:orientation="horizontal"
-                 android:weightSum="10"
-                 android:layout_width="0dp"
-                 android:layout_height="match_parent">
-                 <TextView
-                     android:layout_weight="3"
-                     android:layout_width="0dp"
-                     android:layout_height="match_parent"
-                     android:text="Phase"/>
-                 <Spinner
-                     android:id="@+id/spPhase"
-                     android:layout_gravity="top"
-                     android:layout_weight="7"
-                     android:layout_width="0dp"
-                     android:layout_height="match_parent"></Spinner>
-             </LinearLayout>
-         </LinearLayout>
-         <LinearLayout
-                 android:layout_weight="5"
-                 android:orientation="horizontal"
-                 android:weightSum="10"
-                 android:layout_width="match_parent"
-                 android:layout_height="0dp">
-                 <LinearLayout
-                     android:layout_weight="5"
-                     android:orientation="horizontal"
-                     android:weightSum="10"
-                     android:layout_width="0dp"
-                     android:layout_height="match_parent">
-                     <TextView
-                         android:layout_weight="3"
-                         android:layout_width="0dp"
-                         android:layout_height="match_parent"
-                         android:text="Block"/>
-                     <Spinner
-                         android:id="@+id/spBlock"
-                         android:layout_gravity="top"
-                         android:layout_weight="7"
-                         android:layout_width="0dp"
-                         android:layout_height="match_parent"></Spinner>
-                 </LinearLayout>
-                 <LinearLayout
-                     android:layout_weight="5"
-                     android:orientation="horizontal"
-                     android:weightSum="10"
-                     android:layout_width="0dp"
-                     android:layout_height="match_parent">
-                     <TextView
-                         android:layout_weight="3"
-                         android:layout_width="0dp"
-                         android:layout_height="match_parent"
-                         android:text="Unit"/>
-                     <EditText
-                         android:id="@+id/unitText"
-                         android:layout_weight="5"
-                         android:layout_width="0dp"
-                         android:layout_height="match_parent" />
-                 </LinearLayout>
-         </LinearLayout>
-    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/project_filterBtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/lvDefectHeader"
+        app:layout_constraintTop_toTopOf="@+id/lvDefectHeader" />
 
     <ListView
         android:id="@+id/lvDefectHeader"
-        android:layout_weight="10"
-        android:layout_width="match_parent"
-        android:layout_height="0dp" />
-</LinearLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+</android.support.constraint.ConstraintLayout>
