@@ -26,7 +26,8 @@
             android:id="@+id/imageConfirm"
             android:layout_width="match_parent"
             android:maxHeight="1dp"
-            android:layout_weight="6"/>
+            android:layout_weight="6"
+            android:layout_height="0dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_weight="6.5"
