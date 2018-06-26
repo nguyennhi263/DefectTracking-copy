@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -35,7 +36,7 @@ import vn.com.ifca.defecttracking.R;
 public class LogInActivity extends AppCompatActivity {
 
     EditText txtname, txtpass;
-    Button loginbtn;
+    CardView loginbtn;
     ProgressDialog pDialog;
     SessionManager session;
     @Override
@@ -49,7 +50,7 @@ public class LogInActivity extends AppCompatActivity {
 
         txtname = (EditText) findViewById(R.id.txtUsername);
         txtpass = (EditText) findViewById(R.id.txtPassword);
-        loginbtn = (Button) findViewById(R.id.loginbtn);
+        loginbtn = (CardView) findViewById(R.id.LoginBtn);
 
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
