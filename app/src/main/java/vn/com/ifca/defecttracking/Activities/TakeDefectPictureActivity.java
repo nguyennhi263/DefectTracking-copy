@@ -64,7 +64,6 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         cameraBtn = (Button) findViewById(R.id.Camerabtn);
         imageView = (ImageView) findViewById(R.id.imageView);
         imageViewT = (DrawCanvasImage) findViewById(R.id.imageViewT);
-<<<<<<< HEAD
 
         /*------------OPEN CAMERA-------------*/
         cameraBtn.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +74,6 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
             }
         });
-=======
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
 
@@ -94,7 +92,6 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         else{
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 0);
         }
->>>>>>> 49501ebd9c9dbc0b153b88d0d79ca84a533daed3
     }
     @Override
     protected void onStart() {
