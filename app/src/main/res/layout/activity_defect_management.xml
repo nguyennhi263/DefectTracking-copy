@@ -23,7 +23,6 @@
         android:id="@+id/filter_project"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_constraintTop_BottomOf="@+id/project_filterBtn"
         android:layout_margin="30dp"
         android:layout_marginTop="8dp"
         android:background="#CCCCCC"
