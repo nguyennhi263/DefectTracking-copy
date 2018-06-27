@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         mWebView.getSettings().getLoadsImagesAutomatically();
         mWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
         //  mWebView.loadUrl("http://google.com.vn");
-        mWebView.loadUrl("http://demo.ifca.com.vn:6868/en/bi/public/PM_Dashboard");
+        mWebView.loadUrl("http://demo.ifca.com.vn:6868/en/bi/public/Defect_Tracking");
     }
 
     @Override
