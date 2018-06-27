@@ -256,11 +256,7 @@
                     android:id="@+id/checkComplete"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ed2b6efbee33233618f757b51cb14e8112516eb
-                    android:buttonTint="@color/colorAccent"/>
+                    android:buttonTint="@color/White"/>
             </LinearLayout>
 
             <LinearLayout
@@ -313,7 +309,7 @@
             android:layout_height="0dp"
             android:weightSum="12"
             android:orientation="horizontal"
-            android:layout_marginLeft="-20dp">
+            android:background="@color/Black">
 
 
             <Button
@@ -324,7 +320,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
                 android:text="Edit"
-                />
+                android:layout_marginRight="1dp"/>
 
             <Button
                 android:layout_weight="4"
@@ -333,7 +329,8 @@
                 android:background="@color/colorPrimary"
                 android:text="Home"
                 android:onClick="go_to_homescreen"
-                />
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"/>
 
             <Button
                 android:id="@+id/CloseDefectBtn"
@@ -341,7 +338,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
-                android:text="Close Defect" />
+                android:text="Close Defect"
+                android:layout_marginLeft="1dp"/>
         </LinearLayout>
 
 </LinearLayout>
