@@ -67,8 +67,7 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imageView);
         imageViewT = (DrawCanvasImage) findViewById(R.id.imageViewT);
 
-<<<<<<< HEAD
-=======
+
         /*------------OPEN CAMERA-------------*/
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +79,7 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         });
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
->>>>>>> b4573641f26aa9bf715b32468e01d2c2b0c43134
+
 
             /*------------OPEN CAMERA-------------*/
             cameraBtn.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +151,6 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-<<<<<<< HEAD
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             try {
                 selectedImage = imageUri;
@@ -160,8 +158,6 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
             } catch (Exception e) {
                 Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
                         .show();
-
-=======
         if (resultCode == RESULT_OK){
             if (requestCode == CAMERA_REQUEST){
                 imageViewT.setVisibility(View.VISIBLE);
@@ -173,7 +169,6 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                 bmp = RotateBitmap(bitmap,90);*/
                 Bitmap bitmap = (Bitmap)data.getExtras().get("data");
                 imageViewT.setImageBitmap(bitmap);
->>>>>>> b4573641f26aa9bf715b32468e01d2c2b0c43134
             }
 
         }
