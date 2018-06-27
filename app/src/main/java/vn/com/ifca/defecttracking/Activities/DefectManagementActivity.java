@@ -110,7 +110,7 @@ public class DefectManagementActivity extends AppCompatActivity {
                 listPhase.clear();
                 listBlock.clear();
                 listFloor.clear();
-                 projectCur = listProject.get(i);
+                projectCur = listProject.get(i);
                 new GetPhase().execute("Phase",projectCur.getProjectID());
                 listDefectHeader.clear();
                 defectHeaderAdapter.notifyDataSetChanged();
@@ -125,12 +125,11 @@ public class DefectManagementActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 listDefectHeader.clear();
-                defectHeaderAdapter.notifyDataSetChanged();
                 listBlock.clear();
                 listFloor.clear();
                 phaseCur = listPhase.get(position);
                 new GetBlock().execute("Block",phaseCur.getPhaseID());
-
+                defectHeaderAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -469,7 +468,7 @@ public class DefectManagementActivity extends AppCompatActivity {
                 }
             }
             else {
-                listFloor.clear();
+                listBlock.clear();
             }
             if (pDialog.isShowing())
             {    pDialog.dismiss();}

@@ -145,7 +145,7 @@ public class SelectTradeActivity extends AppCompatActivity {
                 bundle.putInt("DefectItemID",(int)defectItemInserted);
                 intent.putExtras(bundle);
                 startActivity(intent);
-                finish();
+               // finish();
                 defectDBManager.close();
             }
         });
@@ -156,7 +156,7 @@ public class SelectTradeActivity extends AppCompatActivity {
                         curTrade.getTradeID(),curTrade.getTradeName(),curDes.getDescriptionID(),curDes.getDetail());
                 defectDBManager.close();
                 startActivity( new Intent(SelectTradeActivity.this,ConfirmDefectActivity.class));
-                finish();
+              //  finish();
             }
         });
         builder.create().show();

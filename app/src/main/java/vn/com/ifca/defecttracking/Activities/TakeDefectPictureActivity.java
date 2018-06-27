@@ -37,7 +37,7 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
     Canvas canvas = null;
     DefectItem defectItem;
     int defectItemID;
-    private static final int CAMERA_REQUEST = 1888;
+    private static final int CAMERA_REQUEST = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         DefectItem defectItem = new DefectItem(getApplicationContext());
@@ -66,10 +66,8 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imageViewT.clear();
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                File file = new File(Environment.getExternalStorageDirectory()+File.separator + "image.jpg");
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-                startActivityForResult(intent, CAMERA_REQUEST);
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
             }
         });
     }
@@ -130,11 +128,12 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                 imageViewT.setVisibility(View.VISIBLE);
                 clearBtn.setVisibility(View.VISIBLE);
                 saveBtn.setVisibility(View.VISIBLE);
-                File file = new File(Environment.getExternalStorageDirectory()+File.separator +
+               /* File file = new File(Environment.getExternalStorageDirectory()+File.separator +
                         "image.jpg");
                 Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 500, 250);
-                bmp = RotateBitmap(bitmap,90);
-                imageViewT.setImageBitmap(bmp);
+                bmp = RotateBitmap(bitmap,90);*/
+                Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+                imageViewT.setImageBitmap(bitmap);
             }
         }
     }
