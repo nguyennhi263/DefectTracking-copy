@@ -43,7 +43,8 @@
             android:onClick="go_to_home_screen"
             android:text="Home"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            tools:layout_editor_absoluteY="0dp"
+            android:layout_marginLeft="1dp"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
