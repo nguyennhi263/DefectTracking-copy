@@ -134,18 +134,12 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@color/White"
-        app:layout_constraintBottom_toBottomOf="@+id/defect_management_defect_footer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filter_project"
-        app:layout_constraintVertical_bias="0.342" />
+        app:layout_constraintBottom_toTopOf="@+id/defect_management_defect_footer" />
 
     <LinearLayout
         android:id="@+id/defect_management_defect_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
         android:background="@color/Black"
         android:orientation="horizontal"
         android:weightSum="2"
