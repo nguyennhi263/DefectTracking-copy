@@ -1,15 +1,18 @@
 package vn.com.ifca.defecttracking.Activities;
 
-import android.app.ProgressDialog;
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -26,89 +29,134 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import vn.com.ifca.defecttracking.MainActivity;
+import vn.com.ifca.defecttracking.Model.IP4V;
 import vn.com.ifca.defecttracking.Model.SessionManager;
-import vn.com.ifca.defecttracking.Model.ipconfig;
 import vn.com.ifca.defecttracking.R;
 
-public class LogInActivity extends AppCompatActivity {
 
-    EditText txtname, txtpass;
-    CardView loginbtn;
-    ProgressDialog pDialog;
+public class LogInActivity extends AppCompatActivity {
+    private EditText user;
+    private EditText pass;
+    private CardView LoginBtn;
+    private String username;
+    private String password;
+    private ImageButton settingBtn;
+    ProgressBar pBar;
+    IP4V link;
+    HashMap<String, String> ip;
     SessionManager session;
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+        // hide support bar
         getSupportActionBar().hide();
         setContentView(R.layout.activity_log_in);
+        /*
+        *   Initial
+        * */
+        user = findViewById(R.id.txtUsername);
+        pass = findViewById(R.id.txtPassword);
+        LoginBtn = findViewById(R.id.LoginBtn);
+        pBar = findViewById(R.id.progress);
+        pBar.setVisibility(View.INVISIBLE);
+        link = new IP4V(getApplicationContext());
+        settingBtn = findViewById(R.id.url_destinationBtn);
+        ip = link.getIP();
         // Session Manager Class
         session = new SessionManager(getApplicationContext());
-
-        txtname = (EditText) findViewById(R.id.txtUsername);
-        txtpass = (EditText) findViewById(R.id.txtPassword);
-        loginbtn = (CardView) findViewById(R.id.LoginBtn);
-
-
-        loginbtn.setOnClickListener(new View.OnClickListener() {
+        /*
+        *   Event
+        * */
+        LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //get id,pass from edit text
-                String name = txtname.getText().toString().trim();
-                final String password = txtpass.getText().toString().trim();
-                //neu email rong
-                if(TextUtils.isEmpty(name)){
-                    Toast.makeText(LogInActivity.this, "Enter your username", Toast.LENGTH_SHORT).show();
-                    //dung chuong trinh lai
-                    return;
+                username = user.getText().toString();
+                password = pass.getText().toString();
+                if (TextUtils.isEmpty(username)) {
+                    Toast.makeText(LogInActivity.this, "@string/logInToastUsername", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(LogInActivity.this, "@string/logInToastPassword", Toast.LENGTH_SHORT).show();
+                } else {
+                     //Toast.makeText(getApplicationContext(), "test" + username + "!", Toast.LENGTH_SHORT).show();
+                    new   CheckLogin().execute(username,password);
                 }
-                //neu password rong
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(LogInActivity.this, "Enter your password", Toast.LENGTH_SHORT).show();
-                    //dung chuong trinh lai
-                    return;
-                }
-                new   CheckLogin().execute(name,password);
             }
         });
 
-    }
+
+        settingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialogContractor = new Dialog(LogInActivity.this);
+                dialogContractor.setContentView(R.layout.url_options);
+                dialogContractor.setCancelable(true);
+                // initial
+                Button cancelBtn;
+                cancelBtn = (Button) dialogContractor.findViewById(R.id.cancel_url);
+                final Button urlBtn = dialogContractor.findViewById(R.id.ok_url_entry);
+                final EditText urtText = (EditText) dialogContractor.findViewById(R.id.url_entry);
+                //get url in db
+                ip = link.getIP();
+                String URL = ip.get(link.KEY_URL);
+                urtText.setText(URL);
+
+                // Save Event
+                urlBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (urlBtn.getText().toString().equals("")) {
+
+                        } else {
+                            final String urlText = urtText.getText().toString();
+                            link.add_KEYURL(urlText);
+                            Toast.makeText(getApplicationContext(), "@string/updateURL", Toast.LENGTH_SHORT).show();
+                            dialogContractor.dismiss();
+                        }
+                    }
+                });
+
+                // Cancel
+                cancelBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogContractor.dismiss();
+                    }
+                });
+                dialogContractor.show();
+            };
+        });
+    };
     private class CheckLogin extends AsyncTask<String, Void, String> {
-        ipconfig ip= new ipconfig();
-        String ips= ip.getIpconfig();
-        String URL = ips;
-
-
+        String URL = ip.get(link.KEY_URL);
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(LogInActivity.this);
-            pDialog.setMessage("Loading data..");
-            pDialog.setCancelable(false);
-            pDialog.show();
+            pBar.setVisibility(View.VISIBLE);
         }
 
         @Override
         protected String doInBackground(String... params) {
             try {
-                //Khởi tạo đối tượng client
+                //create client
                 HttpClient client = new DefaultHttpClient();
-                //Đối tượng chứa nội dung cần gửi
+                // create client post
                 HttpPost post = new HttpPost(URL);
-                //Gán tham số vào giá trị gửi
+                // add params
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("username", params[0]));
                 valuePairs.add(new BasicNameValuePair("pass", params[1]));
                 valuePairs.add(new BasicNameValuePair("check_login", "true"));
 
-
-                //Gán nội dung lên form
+                // convert data to form
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
-                //Đón nhận kết quả
+                // receive data
                 HttpResponse response = client.execute(post);
                 InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -128,7 +176,7 @@ public class LogInActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
 
             super.onPostExecute(s);
-            //Kết quả trả về
+            // data received
             if (!s.equals("false"))
             {
                 try {
@@ -143,7 +191,7 @@ public class LogInActivity extends AppCompatActivity {
                         String fullname = cur.getString("FullName");
                         String email = cur.getString("Email");
                         String mobile = cur.getString("Mobile");
-                        String Pass = txtpass.getText().toString().trim();
+                        String Pass = password;
                         session.createLoginSession(UserID,Username,Pass,fullname,Level,email,mobile);
                         Toast.makeText(LogInActivity.this,"Log in success",Toast.LENGTH_SHORT).show();
 
@@ -160,12 +208,7 @@ public class LogInActivity extends AppCompatActivity {
             else {
                 Toast.makeText(LogInActivity.this,"Wrong password or username",Toast.LENGTH_SHORT).show();
             }
-            if (pDialog.isShowing())
-                pDialog.dismiss();
+            pBar.setVisibility(View.INVISIBLE);
         }
-    }
-
-    @Override
-    public void onBackPressed() {
     }
 }
