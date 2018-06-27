@@ -1,7 +1,9 @@
 package vn.com.ifca.defecttracking.Activities;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -11,6 +13,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -60,6 +64,7 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         cameraBtn = (Button) findViewById(R.id.Camerabtn);
         imageView = (ImageView) findViewById(R.id.imageView);
         imageViewT = (DrawCanvasImage) findViewById(R.id.imageViewT);
+<<<<<<< HEAD
 
         /*------------OPEN CAMERA-------------*/
         cameraBtn.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +75,27 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
             }
         });
-    }
+=======
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
 
+            /*------------OPEN CAMERA-------------*/
+            cameraBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    imageViewT.clear();
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    File file = new File(Environment.getExternalStorageDirectory() + File.separator + "image.jpg");
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+                    startActivityForResult(intent, CAMERA_REQUEST);
+                }
+            });
+        }
+        else{
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 0);
+        }
+>>>>>>> 49501ebd9c9dbc0b153b88d0d79ca84a533daed3
+    }
     @Override
     protected void onStart() {
         super.onStart();
