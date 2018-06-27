@@ -158,7 +158,6 @@
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/Orange"
-            android:onClick="go_to_back_screen"
             android:text="Back" />
 
         <Button
@@ -168,7 +167,6 @@
             android:layout_marginLeft="1dp"
             android:layout_weight="1"
             android:background="@color/Orange"
-            android:onClick="go_to_home_screen"
             android:text="Home"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
