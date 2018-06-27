@@ -1,5 +1,6 @@
 package vn.com.ifca.defecttracking.Activities;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +9,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,6 +43,7 @@ import vn.com.ifca.defecttracking.Adapter.DefectHeaderAdapter;
 import vn.com.ifca.defecttracking.Adapter.DefectItemAdapter;
 import vn.com.ifca.defecttracking.Adapter.PhaseSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.ProjectSpinAdapter;
+import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.Block;
 import vn.com.ifca.defecttracking.Model.Defect;
 import vn.com.ifca.defecttracking.Model.DefectHeader;
@@ -96,8 +100,36 @@ public class DefectManagementActivity extends AppCompatActivity {
         listDefectHeader = new ArrayList<>();
         unitText = (EditText) findViewById(R.id.unitText);
         new GetProject().execute();
+        /*
 
-
+        ImageButton filter = findViewById(R.id.project_filterBtn);
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialogfilter = new Dialog(MainActivity.this);
+                dialogfilter.setContentView(R.layout.filter_project);
+                Button cancel = findViewById(R.id.cancel_project_filter);
+                Spinner projectdata = findViewById(R.id.spProject);
+                Spinner phase = findViewById(R.id.spPhase);
+                Spinner block = findViewById(R.id.spBlock);
+                EditText unit = findViewById(R.id.unitText);
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogfilter.dismiss();
+                    }
+                });
+                Button ok = findViewById(R.id.confirm_project_filter);
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        
+                        dialogfilter.dismiss();
+                    }
+                });
+            }
+        });
+        */
         spProject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

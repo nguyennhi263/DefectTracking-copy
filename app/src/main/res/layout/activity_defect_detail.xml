@@ -256,7 +256,7 @@
                     android:id="@+id/checkComplete"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_padding="3dp"
+
                     android:buttonTint="@color/colorAccent"/>
             </LinearLayout>
 
