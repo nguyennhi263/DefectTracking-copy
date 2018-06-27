@@ -43,7 +43,7 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
     Canvas canvas = null;
     DefectItem defectItem;
     int defectItemID;
-    private static final int CAMERA_REQUEST = 1888;
+    private static final int CAMERA_REQUEST = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         DefectItem defectItem = new DefectItem(getApplicationContext());
@@ -67,6 +67,20 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imageView);
         imageViewT = (DrawCanvasImage) findViewById(R.id.imageViewT);
 
+<<<<<<< HEAD
+=======
+        /*------------OPEN CAMERA-------------*/
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageViewT.clear();
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            }
+        });
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+>>>>>>> b4573641f26aa9bf715b32468e01d2c2b0c43134
 
             /*------------OPEN CAMERA-------------*/
             cameraBtn.setOnClickListener(new View.OnClickListener() {
@@ -138,6 +152,7 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+<<<<<<< HEAD
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             try {
                 selectedImage = imageUri;
@@ -146,6 +161,19 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                 Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
                         .show();
 
+=======
+        if (resultCode == RESULT_OK){
+            if (requestCode == CAMERA_REQUEST){
+                imageViewT.setVisibility(View.VISIBLE);
+                clearBtn.setVisibility(View.VISIBLE);
+                saveBtn.setVisibility(View.VISIBLE);
+               /* File file = new File(Environment.getExternalStorageDirectory()+File.separator +
+                        "image.jpg");
+                Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 500, 250);
+                bmp = RotateBitmap(bitmap,90);*/
+                Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+                imageViewT.setImageBitmap(bitmap);
+>>>>>>> b4573641f26aa9bf715b32468e01d2c2b0c43134
             }
 
         }
