@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -37,7 +38,8 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
     ImageView imageView;
     DrawCanvasImage imageViewT;
     String imageText;
-    Bitmap bmp;
+    Uri imageUri;
+    Uri selectedImage;
     Canvas canvas = null;
     DefectItem defectItem;
     int defectItemID;
@@ -64,24 +66,26 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         cameraBtn = (Button) findViewById(R.id.Camerabtn);
         imageView = (ImageView) findViewById(R.id.imageView);
         imageViewT = (DrawCanvasImage) findViewById(R.id.imageViewT);
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                == PackageManager.PERMISSION_GRANTED) {
+
 
             /*------------OPEN CAMERA-------------*/
             cameraBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    imageViewT.clear();
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    File file = new File(Environment.getExternalStorageDirectory() + File.separator + "image.jpg");
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-                    startActivityForResult(intent, CAMERA_REQUEST);
+                    if (ContextCompat.checkSelfPermission(TakeDefectPictureActivity.this, Manifest.permission.CAMERA)
+                            == PackageManager.PERMISSION_GRANTED) {
+                        imageViewT.clear();
+                        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                        File photo = new File(Environment.getExternalStorageDirectory() + File.separator + "image.jpg");
+                        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photo));
+                        imageUri = Uri.fromFile(photo);
+                        startActivityForResult(intent, CAMERA_REQUEST);
+                    }
+                    else{
+                        ActivityCompat.requestPermissions(TakeDefectPictureActivity.this, new String[] {Manifest.permission.CAMERA}, 0);
+                    }
                 }
             });
-        }
-        else{
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 0);
-        }
     }
     @Override
     protected void onStart() {
@@ -134,17 +138,16 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK){
-            if (requestCode == CAMERA_REQUEST){
-                imageViewT.setVisibility(View.VISIBLE);
-                clearBtn.setVisibility(View.VISIBLE);
-                saveBtn.setVisibility(View.VISIBLE);
-                File file = new File(Environment.getExternalStorageDirectory()+File.separator +
-                        "image.jpg");
-                Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 500, 250);
-                bmp = RotateBitmap(bitmap,90);
-                imageViewT.setImageBitmap(bmp);
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+            try {
+                selectedImage = imageUri;
+                imageViewT.setImageURI(imageUri);
+            } catch (Exception e) {
+                Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
+                        .show();
+
             }
+
         }
     }
     public static Bitmap RotateBitmap(Bitmap source, float angle)
@@ -199,7 +202,7 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
             super.onPostExecute(s);
             imageText = s;
             Intent it = new Intent(TakeDefectPictureActivity.this,ConfirmDefectActivity.class);
-            it.putExtra("image", bmp);
+            it.putExtra("image", selectedImage);
             loading.dismiss();
         }
         @Override
