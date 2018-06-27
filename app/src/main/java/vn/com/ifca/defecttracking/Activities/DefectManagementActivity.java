@@ -1,6 +1,5 @@
 package vn.com.ifca.defecttracking.Activities;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -9,13 +8,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Filter;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -40,17 +37,13 @@ import java.util.List;
 
 import vn.com.ifca.defecttracking.Adapter.BlockSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.DefectHeaderAdapter;
-import vn.com.ifca.defecttracking.Adapter.DefectItemAdapter;
 import vn.com.ifca.defecttracking.Adapter.PhaseSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.ProjectSpinAdapter;
-import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.Block;
-import vn.com.ifca.defecttracking.Model.Defect;
 import vn.com.ifca.defecttracking.Model.DefectHeader;
 import vn.com.ifca.defecttracking.Model.Phase;
 import vn.com.ifca.defecttracking.Model.Project;
 import vn.com.ifca.defecttracking.Model.SessionManager;
-import vn.com.ifca.defecttracking.Model.Unit;
 import vn.com.ifca.defecttracking.Model.ipconfig;
 import vn.com.ifca.defecttracking.R;
 
@@ -84,10 +77,10 @@ public class DefectManagementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_defect_management);
         ipconfig = new ipconfig();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        spPhase = (Spinner) findViewById(R.id.spPhase);
-        spProject = (Spinner) findViewById(R.id. );
-        spBlock = (Spinner) findViewById(R.id.spBlock);
-        lvDefectHeader = (ListView) findViewById(R.id.lvDefectHeader);
+        spPhase = findViewById(R.id.spPhase);
+        spProject = findViewById(R.id.spProject);
+        spBlock = findViewById(R.id.spBlock);
+        lvDefectHeader = findViewById(R.id.lvDefectHeader);
         defectHeaderAdapter = new DefectHeaderAdapter(getApplicationContext(),listDefectHeader);
         sessionManager = new SessionManager(getApplicationContext());
         user = sessionManager.getUserDetails();
@@ -98,38 +91,19 @@ public class DefectManagementActivity extends AppCompatActivity {
         listFloor = new ArrayList<>();
         listProject = new ArrayList<>();
         listDefectHeader = new ArrayList<>();
-        unitText = (EditText) findViewById(R.id.unitText);
+        unitText = findViewById(R.id.unitText);
         new GetProject().execute();
-        /*
-
         ImageButton filter = findViewById(R.id.project_filterBtn);
+        final LinearLayout filterLayout = findViewById(R.id.filter_project);
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialogfilter = new Dialog(MainActivity.this);
-                dialogfilter.setContentView(R.layout.filter_project);
-                Button cancel = findViewById(R.id.cancel_project_filter);
-                Spinner projectdata = findViewById(R.id.spProject);
-                Spinner phase = findViewById(R.id.spPhase);
-                Spinner block = findViewById(R.id.spBlock);
-                EditText unit = findViewById(R.id.unitText);
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogfilter.dismiss();
-                    }
-                });
-                Button ok = findViewById(R.id.confirm_project_filter);
-                ok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        
-                        dialogfilter.dismiss();
-                    }
-                });
+                if (filterLayout.getVisibility() == View.VISIBLE)
+                    filterLayout.setVisibility(View.GONE);
+                else
+                    filterLayout.setVisibility(View.VISIBLE);
             }
         });
-        */
         spProject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
