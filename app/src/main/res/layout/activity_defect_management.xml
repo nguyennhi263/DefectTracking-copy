@@ -29,8 +29,10 @@
         android:layout_marginTop="5dp"
         android:background="#CCCCCC"
         android:orientation="vertical"
+        android:visibility="visible"
         android:weightSum="4"
-        app:layout_constraintTop_toBottomOf="@+id/project_filterBtn">
+        app:layout_constraintTop_toBottomOf="@+id/project_filterBtn"
+        tools:layout_editor_absoluteX="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,16 +127,19 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="top"
-                android:layout_weight="4"></EditText>
+                android:layout_weight="4"
+                android:background="@color/White"></EditText>
         </LinearLayout>
     </LinearLayout>
 
     <ListView
         android:id="@+id/lvDefectHeader"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:background="@color/White"
-        app:layout_constraintBottom_toTopOf="@+id/defect_management_defect_footer" />
+        app:layout_constraintBottom_toTopOf="@+id/defect_management_defect_footer"
+        app:layout_constraintTop_toBottomOf="@+id/filter_project" />
 
     <LinearLayout
         android:id="@+id/defect_management_defect_footer"
