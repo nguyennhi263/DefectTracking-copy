@@ -12,6 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import vn.com.ifca.defecttracking.Activities.DefectManagementActivity;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     SessionManager sessionManager;
     boolean doubleBackToExitPressedOnce = false;
+    private WebView mWebView = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +43,6 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
       sessionManager = new SessionManager(getApplicationContext());
-
         if (sessionManager.isLoggedIn()){
             // set tab layout
             toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -52,6 +54,16 @@ public class MainActivity extends AppCompatActivity
         else {
             sessionManager.checkLogin();
         }
+         /*
+        *   Webview
+        * */
+        mWebView = (WebView) findViewById(R.id.webView);
+        mWebView.setWebViewClient(new MyBroswer());
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().getLoadsImagesAutomatically();
+        mWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
+        //  mWebView.loadUrl("http://google.com.vn");
+        mWebView.loadUrl("http://demo.ifca.com.vn:6868/en/bi/public/PM_Dashboard");
     }
 
     @Override
@@ -127,5 +139,12 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    private class MyBroswer extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
 }
