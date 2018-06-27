@@ -69,7 +69,7 @@ public class DefectHeaderAdapter extends BaseAdapter {
         Button statusColor = (Button) view.findViewById(R.id.statusColor);
         final DefectHeader defectHeader = listTemp.get(position);
         if (position % 2 == 0) {
-            oneRowDefectHeader.setBackgroundColor(Color.LTGRAY);
+           // oneRowDefectHeader.setBackgroundColor(Color.LTGRAY);
         }
         unitNo.setText(defectHeader.getUnitNo());
         txtCraeteDefectDate.setText(defectHeader.getCreateDate());
