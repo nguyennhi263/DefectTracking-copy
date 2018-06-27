@@ -85,7 +85,7 @@ public class DefectManagementActivity extends AppCompatActivity {
         ipconfig = new ipconfig();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         spPhase = (Spinner) findViewById(R.id.spPhase);
-        spProject = (Spinner) findViewById(R.id.spProject);
+        spProject = (Spinner) findViewById(R.id. );
         spBlock = (Spinner) findViewById(R.id.spBlock);
         lvDefectHeader = (ListView) findViewById(R.id.lvDefectHeader);
         defectHeaderAdapter = new DefectHeaderAdapter(getApplicationContext(),listDefectHeader);
