@@ -72,33 +72,20 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imageViewT.clear();
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
-            }
-        });
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                == PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)
+                        == PackageManager.PERMISSION_GRANTED) {
 
-
-            /*------------OPEN CAMERA-------------*/
-            cameraBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (ContextCompat.checkSelfPermission(TakeDefectPictureActivity.this, Manifest.permission.CAMERA)
-                            == PackageManager.PERMISSION_GRANTED) {
-                        imageViewT.clear();
-                        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                        File photo = new File(Environment.getExternalStorageDirectory() + File.separator + "image.jpg");
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photo));
-                        imageUri = Uri.fromFile(photo);
-                        startActivityForResult(intent, CAMERA_REQUEST);
-                    } else {
-                        ActivityCompat.requestPermissions(TakeDefectPictureActivity.this, new String[]{Manifest.permission.CAMERA}, 0);
-                    }
+                    imageViewT.clear();
+                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
                 }
-            });
-        }
+                else{
+                    ActivityCompat.requestPermissions(TakeDefectPictureActivity.this,
+                            new String[] {Manifest.permission.CAMERA}, 0);
+                }
+                }
+        });
+
     }
     @Override
     protected void onStart() {
@@ -150,30 +137,20 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-            try {
-                selectedImage = imageUri;
-                imageViewT.setImageURI(imageUri);
-            } catch (Exception e) {
-                Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
-                        .show();
-                if (resultCode == RESULT_OK) {
-                    if (requestCode == CAMERA_REQUEST) {
-                        imageViewT.setVisibility(View.VISIBLE);
-                        clearBtn.setVisibility(View.VISIBLE);
-                        saveBtn.setVisibility(View.VISIBLE);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == CAMERA_REQUEST) {
+                imageViewT.setVisibility(View.VISIBLE);
+                clearBtn.setVisibility(View.VISIBLE);
+                saveBtn.setVisibility(View.VISIBLE);
                /* File file = new File(Environment.getExternalStorageDirectory()+File.separator +
                         "image.jpg");
                 Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 500, 250);
                 bmp = RotateBitmap(bitmap,90);*/
-                        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-                        imageViewT.setImageBitmap(bitmap);
-                    }
-
-                }
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                imageViewT.setImageBitmap(bitmap);
             }
-    }}
+        }
+    }
     public static Bitmap RotateBitmap(Bitmap source, float angle)
     {
         Matrix matrix = new Matrix();
