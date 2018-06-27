@@ -123,7 +123,6 @@
         android:id="@+id/lvDefectHeader"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter_project" />
 </android.support.constraint.ConstraintLayout>
