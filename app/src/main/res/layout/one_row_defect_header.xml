@@ -8,7 +8,9 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:weightSum="10"
-        android:layout_height="30dp">
+        android:layout_height="30dp"
+        android:background="@color/White"
+        android:layout_marginTop="1dp">
         <Button
             android:id="@+id/statusColor"
             android:layout_width="5dp"

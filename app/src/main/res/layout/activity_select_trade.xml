@@ -1,201 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:weightSum="10"
-    tools:context=".Activities.SelectTradeActivity">
-
-
+    tools:context=".Activities.SelectTradeActivity"
+    android:background="@color/White">
 
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:id="@+id/defect_location"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="60dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:weightSum="10"
-        android:layout_marginLeft="10dp"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/Black">
 
         <TextView
-            android:textSize="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2.5"
-            android:text="Select Place"
-            android:textColor="@color/colorAccent"
-             />
-        <Spinner
-            android:id="@+id/spDefectPlace"
-            android:textSize="17dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_weight="8" />
+            android:layout_margin="5dp"
+            android:layout_weight="2.5"
+            android:text="Select Location"
+            android:textColor="@color/White"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="10"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_marginTop="5dp"
-            android:id="@+id/textView2"
+        <Spinner
+            android:id="@+id/spDefectPlace"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="8"
+            android:padding="20dp"
+            android:textSize="17dp"
+            android:backgroundTint="@color/White"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/Black"
+        android:id="@+id/defect_type"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:weightSum="10"
+        app:layout_constraintTop_toBottomOf="@+id/defect_location"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="2.5"
             android:text="Type"
-            android:textColor="@color/colorAccent"
-            android:textSize="17dp" />
+            android:textColor="@color/White"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:paddingTop="7dp"/>
 
         <Spinner
             android:id="@+id/spTradeType"
-            android:textSize="17dp"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_weight="8" />
-
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:padding="20dp"
+            android:textSize="17dp"
+            android:backgroundTint="@color/White"/>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/trade_select"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="2"
-        android:orientation="vertical"
-        android:weightSum="10">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:weightSum="10"
-            android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/Black"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/defect_type">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/clip" />
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/defect_icon"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+
             <TextView
-                android:layout_marginLeft="35dp"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Select Trade:"
-                android:textColor="@color/colorAccent"
-                android:textSize="17dp" />
+                android:textColor="@color/White"
+                android:textSize="16dp"
+                android:padding="5dp"
+                android:textStyle="bold"/>
 
-        </LinearLayout>
-        <Spinner
-            android:id="@+id/spTrade"
-            android:layout_gravity="left"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_weight="5"
-            android:textAlignment="gravity"
-            android:textSize="55dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="2"
-        android:orientation="vertical"
-        android:weightSum="10">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:orientation="horizontal"
-            android:weightSum="10">
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <Spinner
+                android:id="@+id/spTrade"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="15dp"
                 android:layout_weight="2"
-                app:srcCompat="@drawable/detail" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="8"
-                android:text="Select Description:"
-                android:textColor="@color/colorAccent"
-                android:textSize="17dp" />
-
+                android:backgroundTint="@color/White"></Spinner>
         </LinearLayout>
-
-        <Spinner
-            android:id="@+id/spDescription"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_weight="7"
-            android:textSize="17dp" />
     </LinearLayout>
-
     <LinearLayout
-        android:layout_weight="3"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"></LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/Black"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/trade_select">
 
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/description_icon"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Description:"
+                android:textColor="@color/White"
+                android:textSize="16dp"
+                android:padding="5dp"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/spDescription"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="2"
+                android:backgroundTint="@color/White"></Spinner>
+        </LinearLayout>
+    </LinearLayout>
     <LinearLayout
-        android:layout_weight="1"
+        android:id="@+id/confirm_defect_footer"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="12"
-        android:layout_marginLeft="-10dp"
-        android:orientation="horizontal">
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/Black"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/button3"
-            android:layout_weight="4"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/Orange"
+            android:onClick="got_to_back_screen"
             android:text="Back"
-            android:onClick="got_to_back_screen"/>
+            android:layout_marginRight="1dp"/>
 
         <Button
             android:id="@+id/button4"
-            android:layout_weight="4"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/Orange"
+            android:onClick="go_to_home_screen"
             android:text="Home"
-            android:onClick="go_to_home_screen"/>
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"/>
 
         <Button
             android:id="@+id/button2"
-            android:layout_weight="4"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/Orange"
+            android:text="Next"
             android:onClick="go_to_take_picture"
-            android:text="Next" />
+            android:layout_marginLeft="1dp"/>
     </LinearLayout>
-</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
