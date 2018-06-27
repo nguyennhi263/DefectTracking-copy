@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -75,6 +76,10 @@ public class DefectManagementActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_defect_management);
+       // hide support bar
+       getSupportActionBar().hide();
+
+
         ipconfig = new ipconfig();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         spPhase = findViewById(R.id.spPhase);
