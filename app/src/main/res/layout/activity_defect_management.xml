@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Black"
     tools:context="vn.com.ifca.defecttracking.Activities.DefectManagementActivity">
 
     <ImageButton
         android:id="@+id/project_filterBtn"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -23,8 +24,9 @@
         android:id="@+id/filter_project"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_margin="30dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
         android:background="#CCCCCC"
         android:orientation="vertical"
         android:visibility="visible"
@@ -43,7 +45,7 @@
             android:weightSum="4">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:text="Project" />
@@ -67,7 +69,7 @@
             android:weightSum="4">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:text="Phase" />
@@ -91,7 +93,7 @@
             android:weightSum="4">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:text="Block" />
@@ -115,7 +117,7 @@
             android:weightSum="4">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:text="Unit" />
@@ -125,15 +127,61 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="top"
+<<<<<<< HEAD
                 android:layout_weight="4"
                 android:background="@color/White"></EditText>
+=======
+                android:layout_weight="4"></EditText>
+>>>>>>> 61c19a6d06ef8954dea15a4c94b6c33a1ef9e88e
         </LinearLayout>
     </LinearLayout>
 
     <ListView
         android:id="@+id/lvDefectHeader"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter_project" />
+=======
+        android:layout_height="150dp"
+        android:background="@color/White"
+        app:layout_constraintBottom_toBottomOf="@+id/defect_management_defect_footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filter_project"
+        app:layout_constraintVertical_bias="0.342" />
+
+    <LinearLayout
+        android:id="@+id/defect_management_defect_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:background="@color/Black"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/b"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@color/Orange"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/a"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="@color/Orange"
+            android:text="Home"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+    </LinearLayout>
+>>>>>>> 61c19a6d06ef8954dea15a4c94b6c33a1ef9e88e
 </android.support.constraint.ConstraintLayout>
