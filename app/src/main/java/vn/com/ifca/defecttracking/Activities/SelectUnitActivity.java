@@ -69,8 +69,8 @@ public class SelectUnitActivity extends AppCompatActivity {
 
         spPhase = (Spinner) findViewById(R.id.spPhase);
         spBlock = (Spinner) findViewById(R.id.spBlock);
-        //spUnit = (Spinner) findViewById(R.id.spUnit);
-        //spFloor = (Spinner) findViewById(R.id.spFloor);
+        spUnit = (Spinner) findViewById(R.id.spUnit);
+        spFloor = (Spinner) findViewById(R.id.spFloor);
         spProject = (Spinner) findViewById(R.id.spProject);
         listPhase = new ArrayList<>();
         listBlock = new ArrayList<>();
