@@ -58,9 +58,9 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if (bundle != null) {
-             defectItemID = bundle.getInt("DefectItemID", -1);
+            defectItemID = bundle.getInt("DefectItemID", -1);
         }
-        clearBtn = (Button)findViewById(R.id.clearBtn);
+        clearBtn = (Button) findViewById(R.id.clearBtn);
         saveBtn = (Button) findViewById(R.id.saveBtn);
         defectItem = new DefectItem(getApplicationContext());
         cameraBtn = (Button) findViewById(R.id.Camerabtn);
@@ -93,12 +93,12 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photo));
                         imageUri = Uri.fromFile(photo);
                         startActivityForResult(intent, CAMERA_REQUEST);
-                    }
-                    else{
-                        ActivityCompat.requestPermissions(TakeDefectPictureActivity.this, new String[] {Manifest.permission.CAMERA}, 0);
+                    } else {
+                        ActivityCompat.requestPermissions(TakeDefectPictureActivity.this, new String[]{Manifest.permission.CAMERA}, 0);
                     }
                 }
             });
+        }
     }
     @Override
     protected void onStart() {
@@ -158,21 +158,22 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
             } catch (Exception e) {
                 Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
                         .show();
-        if (resultCode == RESULT_OK){
-            if (requestCode == CAMERA_REQUEST){
-                imageViewT.setVisibility(View.VISIBLE);
-                clearBtn.setVisibility(View.VISIBLE);
-                saveBtn.setVisibility(View.VISIBLE);
+                if (resultCode == RESULT_OK) {
+                    if (requestCode == CAMERA_REQUEST) {
+                        imageViewT.setVisibility(View.VISIBLE);
+                        clearBtn.setVisibility(View.VISIBLE);
+                        saveBtn.setVisibility(View.VISIBLE);
                /* File file = new File(Environment.getExternalStorageDirectory()+File.separator +
                         "image.jpg");
                 Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 500, 250);
                 bmp = RotateBitmap(bitmap,90);*/
-                Bitmap bitmap = (Bitmap)data.getExtras().get("data");
-                imageViewT.setImageBitmap(bitmap);
-            }
+                        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                        imageViewT.setImageBitmap(bitmap);
+                    }
 
-        }
-    }
+                }
+            }
+    }}
     public static Bitmap RotateBitmap(Bitmap source, float angle)
     {
         Matrix matrix = new Matrix();
