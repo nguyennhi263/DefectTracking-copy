@@ -27,8 +27,10 @@
         android:layout_marginTop="8dp"
         android:background="#CCCCCC"
         android:orientation="vertical"
+        android:visibility="visible"
         android:weightSum="4"
-        app:layout_constraintTop_toBottomOf="@+id/project_filterBtn">
+        app:layout_constraintTop_toBottomOf="@+id/project_filterBtn"
+        tools:layout_editor_absoluteX="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,68 +55,77 @@
                 android:layout_gravity="top"
                 android:layout_weight="4"></Spinner>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
             android:layout_weight="1"
-            android:weightSum="4"
-            android:orientation="horizontal"
             android:background="@color/White"
+            android:orientation="horizontal"
             android:padding="10dp"
-            android:layout_marginBottom="2dp">
+            android:weightSum="4">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Phase"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:text="Phase" />
+
             <Spinner
                 android:id="@+id/spPhase"
-                android:layout_gravity="top"
-                android:layout_weight="4"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"></Spinner>
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:layout_weight="4"></Spinner>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
             android:layout_weight="1"
-            android:weightSum="4"
-            android:orientation="horizontal"
             android:background="@color/White"
+            android:orientation="horizontal"
             android:padding="10dp"
-            android:layout_marginBottom="2dp">
+            android:weightSum="4">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Block"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:text="Block" />
+
             <Spinner
                 android:id="@+id/spBlock"
-                android:layout_gravity="top"
-                android:layout_weight="4"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"></Spinner>
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:layout_weight="4"></Spinner>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
             android:layout_weight="1"
-            android:weightSum="4"
-            android:orientation="horizontal"
             android:background="@color/White"
+            android:orientation="horizontal"
             android:padding="10dp"
-            android:layout_marginBottom="2dp">
+            android:weightSum="4">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Unit"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:text="Unit" />
+
             <EditText
                 android:id="@+id/unitText"
-                android:layout_gravity="top"
-                android:layout_weight="4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:layout_weight="4"
                 android:background="@color/White"></EditText>
         </LinearLayout>
     </LinearLayout>
@@ -122,7 +133,7 @@
     <ListView
         android:id="@+id/lvDefectHeader"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter_project" />
 </android.support.constraint.ConstraintLayout>
