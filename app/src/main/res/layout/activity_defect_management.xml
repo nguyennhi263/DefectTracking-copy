@@ -127,30 +127,21 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="top"
-<<<<<<< HEAD
                 android:layout_weight="4"
                 android:background="@color/White"></EditText>
-=======
-                android:layout_weight="4"></EditText>
->>>>>>> 61c19a6d06ef8954dea15a4c94b6c33a1ef9e88e
         </LinearLayout>
     </LinearLayout>
 
     <ListView
         android:id="@+id/lvDefectHeader"
         android:layout_width="match_parent"
-<<<<<<< HEAD
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filter_project" />
-=======
-        android:layout_height="150dp"
+        app:layout_constraintTop_toBottomOf="@+id/filter_project"
         android:background="@color/White"
         app:layout_constraintBottom_toBottomOf="@+id/defect_management_defect_footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filter_project"
         app:layout_constraintVertical_bias="0.342" />
 
     <LinearLayout
@@ -183,5 +174,4 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
     </LinearLayout>
->>>>>>> 61c19a6d06ef8954dea15a4c94b6c33a1ef9e88e
 </android.support.constraint.ConstraintLayout>
