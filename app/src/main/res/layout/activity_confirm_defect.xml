@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Location"
+            android:text="@string/location"
             android:textColor="@color/White"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -96,7 +96,7 @@
             android:layout_weight="1"
             android:background="@color/Orange"
             android:onClick="go_to_back_screen"
-            android:text="Back"
+            android:text="@string/backBtn"
             android:layout_marginRight="1dp"/>
 
         <Button
@@ -106,7 +106,7 @@
             android:layout_weight="1"
             android:background="@color/Orange"
             android:onClick="go_to_home_screen"
-            android:text="Home"
+            android:text="@string/homeBtn"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"/>
 
@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/Orange"
-            android:text="Submit"
+            android:text="@string/submitBtn"
             android:layout_marginLeft="1dp"/>
     </LinearLayout>
 

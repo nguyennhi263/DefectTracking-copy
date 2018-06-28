@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
-                    android:text="Location:"
+                    android:text="@string/locate"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
 
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
-                    android:text="Trade name:"
+                    android:text="@string/tradeName"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
 
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
-                    android:text="Description:"
+                    android:text="@string/descript"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
 
@@ -149,7 +149,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
                     android:layout_weight="0.75"
-                    android:text="Date created:"
+                    android:text="@string/date"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
 
@@ -178,7 +178,7 @@
                     android:layout_height="0dp"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="0.75"
-                    android:text="Assigned to"
+                    android:text="@string/assign"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
 
@@ -209,7 +209,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
                     android:layout_weight="0.75"
-                    android:text="Note(s)"
+                    android:text="@string/note"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
 
@@ -254,7 +254,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Completed:"
+                    android:text="@string/complete"
                     android:textColor="@color/White"
                     android:textStyle="bold"
                     android:padding="10dp"/>
@@ -276,7 +276,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Defect Before"
+                    android:text="@string/defectBefore"
                     android:textColor="@color/White"
                     android:paddingTop="20dp"
                     android:paddingLeft="20dp"
@@ -297,7 +297,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Defect After"
+                    android:text="@string/defectBefore"
                     android:textColor="@color/White"
                     android:paddingTop="20dp"
                     android:paddingLeft="20dp"
@@ -326,7 +326,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
-                android:text="Edit"
+                android:text="@string/editBtn"
                 android:layout_marginRight="1dp"/>
 
             <Button
@@ -334,7 +334,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
-                android:text="Home"
+                android:text="@string/homeBtn"
                 android:onClick="go_to_homescreen"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"/>
@@ -345,7 +345,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
-                android:text="Close Defect"
+                android:text="@string/closeBtn"
                 android:layout_marginLeft="1dp"/>
         </LinearLayout>
 

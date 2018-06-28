@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Select Location:"
+                android:text="@string/selectLocate"
                 android:textColor="@color/White"
                 android:textSize="16dp"
                 android:textStyle="bold"/>
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Type:"
+                android:text="@string/type"
                 android:textColor="@color/White"
                 android:textSize="16dp"
                 android:textStyle="bold"/>
@@ -119,7 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Select Trade:"
+                android:text="@string/selectTrade"
                 android:textColor="@color/White"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -161,7 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Select Description:"
+                android:text="@string/selectDes"
                 android:textColor="@color/White"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -195,7 +195,7 @@
             android:layout_weight="1"
             android:background="@color/Orange"
             android:onClick="got_to_back_screen"
-            android:text="Back" />
+            android:text="@string/backBtn" />
 
         <Button
             android:id="@+id/button4"
@@ -206,7 +206,7 @@
             android:layout_weight="1"
             android:background="@color/Orange"
             android:onClick="go_to_home_screen"
-            android:text="Home" />
+            android:text="@string/homeBtn" />
 
         <Button
             android:id="@+id/button2"
@@ -216,7 +216,7 @@
             android:layout_weight="1"
             android:background="@color/Orange"
             android:onClick="go_to_take_picture"
-            android:text="Next" />
+            android:text="@string/nextBtn" />
     </LinearLayout>
 
     <ImageView
