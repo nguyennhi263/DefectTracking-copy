@@ -39,9 +39,7 @@ public class UnitAdapter  extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        Unit unit = listUnit.get(position);
-        long a = Integer.parseInt(unit.getUnitID());
-        return  a;
+        return 0;
     }
 
     @Override
