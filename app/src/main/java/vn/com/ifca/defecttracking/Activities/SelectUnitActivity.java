@@ -31,12 +31,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import vn.com.ifca.defecttracking.Adapter.BlockSpinAdapter;
+import vn.com.ifca.defecttracking.Adapter.FloorAdapter;
 import vn.com.ifca.defecttracking.Adapter.PhaseSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.ProjectSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.UnitAdapter;
 import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.Block;
 import vn.com.ifca.defecttracking.Model.DefectItem;
+import vn.com.ifca.defecttracking.Model.Floor;
 import vn.com.ifca.defecttracking.Model.Phase;
 import vn.com.ifca.defecttracking.Model.Project;
 import vn.com.ifca.defecttracking.Model.SessionManager;
@@ -47,16 +49,16 @@ import vn.com.ifca.defecttracking.R;
 public class SelectUnitActivity extends AppCompatActivity {
 
     ProgressDialog pDialog;
-    SessionManager session;
     DefectItem defectItem;
     ArrayList<Phase> listPhase;
     ArrayList<Block> listBlock;
     ArrayList<Unit> listUnit;
-    ArrayList<String> listFloor;
+    ArrayList<Floor> listFloor;
     ArrayList<Project> listProject;
     Spinner spPhase,spBlock,spUnit,spFloor, spProject;
     UnitAdapter customAdapter;
-    ArrayAdapter<String> floorAdapter;
+    FloorAdapter floorAdapter;
+    //ArrayAdapter<String> floorAdapter;
     Unit cur;
     String projectCur,phaseCur,blockCur;
 
@@ -78,8 +80,9 @@ public class SelectUnitActivity extends AppCompatActivity {
         listFloor = new ArrayList<>();
         listProject = new ArrayList<>();
         customAdapter = new UnitAdapter(getApplicationContext(),listUnit);
-        floorAdapter=new ArrayAdapter<String>(SelectUnitActivity.this, android.R.layout.simple_spinner_item, listFloor);
-        floorAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+        floorAdapter = new FloorAdapter(getApplicationContext(),listFloor);
+       // floorAdapter=new ArrayAdapter<String>(SelectUnitActivity.this, android.R.layout.simple_spinner_item, listFloor);
+       // floorAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         defectItem = new DefectItem(getApplicationContext());
 
 
@@ -135,9 +138,9 @@ public class SelectUnitActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 listUnit.clear();
-                String floor = listFloor.get(position);
+                Floor floor = listFloor.get(position);
                 Block cur = (Block) spBlock.getSelectedItem();
-                new GetUnit().execute("Unit",cur.getBlockID(),floor);
+                new GetUnit().execute("Unit",cur.getBlockID(),floor.getFloorID());
             }
 
             @Override
@@ -445,7 +448,9 @@ public class SelectUnitActivity extends AppCompatActivity {
                     int length = Integer.parseInt(array.getString("numsize"));
                     listFloor.clear();
                     for (int i= 1;i<=length;i++){
-                        listFloor.add(array.getString(i+""));
+
+                        Floor cur = new Floor(array.getString(i+""));
+                        listFloor.add(cur);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
