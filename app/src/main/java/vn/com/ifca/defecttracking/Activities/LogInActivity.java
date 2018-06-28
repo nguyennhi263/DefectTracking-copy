@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -37,8 +38,8 @@ public class LogInActivity extends AppCompatActivity {
 
     EditText txtname, txtpass;
     CardView loginbtn;
-    ProgressDialog pDialog;
     SessionManager session;
+    ProgressBar progressLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,7 +52,7 @@ public class LogInActivity extends AppCompatActivity {
         txtname = (EditText) findViewById(R.id.txtUsername);
         txtpass = (EditText) findViewById(R.id.txtPassword);
         loginbtn = (CardView) findViewById(R.id.LoginBtn);
-
+        progressLogin = (ProgressBar) findViewById(R.id.progressLogin);
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,10 +86,7 @@ public class LogInActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(LogInActivity.this);
-            pDialog.setMessage("Loading data..");
-            pDialog.setCancelable(false);
-            pDialog.show();
+            progressLogin.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -160,8 +158,7 @@ public class LogInActivity extends AppCompatActivity {
             else {
                 Toast.makeText(LogInActivity.this,"Wrong password or username",Toast.LENGTH_SHORT).show();
             }
-            if (pDialog.isShowing())
-                pDialog.dismiss();
+            progressLogin.setVisibility(View.INVISIBLE);
         }
     }
 
