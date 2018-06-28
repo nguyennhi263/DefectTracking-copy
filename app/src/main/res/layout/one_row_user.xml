@@ -63,6 +63,8 @@
             android:splitTrack="false"
             android:textOff="Enable"
             android:textOn="Disabled"
+            android:trackTint="@color/White"
+            android:trackTintMode="multiply"
             tools:checked="false"
             android:background="@color/Black"
             android:padding="5dp"/>

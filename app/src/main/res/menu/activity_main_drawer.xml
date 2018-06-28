@@ -15,11 +15,11 @@
             android:title="Add New Defect" />
         <item
             android:id="@+id/defect_management"
-            android:icon="@drawable/gear"
+            android:icon="@drawable/people_icon"
             android:title="Defect Management" />
         <item
             android:id="@+id/user_management"
-            android:icon="@drawable/job"
+            android:icon="@drawable/people_icon"
             android:title="User Management" />
 
     </group>
