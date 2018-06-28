@@ -57,4 +57,11 @@
     <string name="takePic">Take Picture</string>
     <string name="fixedDefect">Fixed Defect</string>
     <string name="selectContractor">Select contractor</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="addNewDefect">Add New Defect</string>
+    <string name="userManage">User Management</string>
+    <string name="personal">Personal</string>
+    <string name="setting">Setting</string>
+    <string name="logOut">Log out</string>
+    <string name="exit">Exit</string>
 </resources>
