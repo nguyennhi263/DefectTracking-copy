@@ -51,8 +51,12 @@
     <ListView
         android:id="@+id/lvUser"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="489dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"></ListView>
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ListView>
     <!--End of list of User-->
 </android.support.constraint.ConstraintLayout>

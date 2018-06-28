@@ -1,51 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/one_row_defect_confirm"
     android:minHeight="100dp"
-
     android:weightSum="12"
-    android:background="@color/White"
-    android:layout_marginTop="1dp">
+    android:background="@color/Black"
+    android:layout_marginBottom="1dp">
     <LinearLayout
         android:layout_weight="4"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="10">
+        android:weightSum="10"
+        android:background="@color/White"
+        android:layout_marginRight="1dp">
         <TextView
             android:id="@+id/defectPlacetxtConfirm"
             android:text="Room"
-            android:layout_weight="2"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:paddingLeft="5dp"/>
+            android:layout_height="wrap_content"
+            android:padding="5dp"/>
 
         <ImageView
             android:id="@+id/imageConfirm"
             android:layout_width="match_parent"
             android:maxHeight="1dp"
-            android:layout_weight="6"
+            android:layout_weight="10"
             android:layout_height="0dp"/>
     </LinearLayout>
+
     <LinearLayout
+        android:layout_marginLeft="1dp"
         android:layout_weight="6.5"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
         <TextView
-            android:padding="2dp"
+            android:background="@color/White"
+            android:padding="3dp"
             android:id="@+id/tradeConfirm"
             android:layout_weight="5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Trade name"/>
+            android:text="Trade name"
+            android:layout_marginBottom="1dp"/>
         <TextView
-            android:padding="5dp"
+            android:background="@color/White"
+            android:padding="3dp"
             android:id="@+id/descriptionConfirm"
             android:layout_weight="5"
             android:layout_width="match_parent"
@@ -53,22 +59,13 @@
             android:textStyle="italic"
             android:text="description"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:orientation="vertical"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:weightSum="12">
 
-        <Button
-            android:id="@+id/deleteDefectItemConfirmBtn"
-            android:layout_weight="3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/error"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"/>
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/deleteDefectItemConfirmBtn"
+        android:layout_marginLeft="1dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:background="@color/White"
+        app:srcCompat="@drawable/cross_icon"/>
 </LinearLayout>
