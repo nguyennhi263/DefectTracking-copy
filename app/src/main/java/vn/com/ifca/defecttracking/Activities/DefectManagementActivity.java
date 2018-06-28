@@ -115,10 +115,8 @@ public class DefectManagementActivity extends AppCompatActivity {
                 listPhase.clear();
                 listBlock.clear();
                 listFloor.clear();
-                projectCur = listProject.get(i);
-                new GetPhase().execute("Phase",projectCur.getProjectID());
-                listDefectHeader.clear();
-                defectHeaderAdapter.notifyDataSetChanged();
+                Project project = listProject.get(i);
+                new GetPhase().execute("Phase",project.getProjectID());
             }
 
             @Override
@@ -153,6 +151,7 @@ public class DefectManagementActivity extends AppCompatActivity {
                 listDefectHeader.clear();
                 defectHeaderAdapter.notifyDataSetChanged();
                 new GetDefectHeader().execute("DefectHeader",blockCur.getBlockName());
+
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

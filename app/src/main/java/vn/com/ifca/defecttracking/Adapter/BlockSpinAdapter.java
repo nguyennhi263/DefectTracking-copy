@@ -38,11 +38,10 @@ public class BlockSpinAdapter extends BaseAdapter {
     }
 
     @Override
-    public long getItemId(int position) {
-        Block block = listBlock.get(position);
-        long a = Integer.parseInt(block.getBlockID());
-        return  a;
+    public long getItemId(int i) {
+        return 0;
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
