@@ -48,7 +48,7 @@ public class DefectItemAdapter  extends ArrayAdapter<Defect> {
         TextView defectTypetxt = (TextView) listView.findViewById(R.id.defectTypetxt);
         final Defect defect = defectList.get(position);
         if (position%2==0){
-            oneRowDefect.setBackgroundColor(Color.LTGRAY);
+           // oneRowDefect.setBackgroundColor(Color.LTGRAY);
         }
         String tradeName = defect.getTradeName();
         String descrip = defect.getDescriptionDetail();
