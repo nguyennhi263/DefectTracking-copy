@@ -29,6 +29,7 @@
     <string name="editBtn">Edit</string>
     <string name="closeBtn">Close Defect</string>
     <string name="defectBefore">Defect Before</string>
+    <string name="defectAfter">Defect After</string>
     <string name="status">Status</string>
     <string name="locate">Location:</string>
     <string name="defect">Defect</string>
@@ -45,4 +46,15 @@
     <string name="selectDes">Select Description:</string>
     <string name="nextBtn">Next</string>
     <string name="floor">Floor</string>
+    <string name="saveBtn">Save</string>
+    <string name="defectTrack">Defect Tracking</string>
+    <string name="room">Room</string>
+    <string name="defectType">Defect Type</string>
+    <string name="tradeN">Trade name</string>
+    <string name="des">description</string>
+    <string name="unitNo">Unit No.</string>
+    <string name="contractor">Contractor</string>
+    <string name="takePic">Take Picture</string>
+    <string name="fixedDefect">Fixed Defect</string>
+    <string name="selectContractor">Select contractor</string>
 </resources>

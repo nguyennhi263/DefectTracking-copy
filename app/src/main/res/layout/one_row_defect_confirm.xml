@@ -20,7 +20,7 @@
         android:layout_marginRight="1dp">
         <TextView
             android:id="@+id/defectPlacetxtConfirm"
-            android:text="Room"
+            android:text="@string/room"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"/>
@@ -47,7 +47,7 @@
             android:layout_weight="5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Trade name"
+            android:text="@string/tradeN"
             android:layout_marginBottom="1dp"/>
         <TextView
             android:background="@color/White"
@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:textStyle="italic"
-            android:text="description"/>
+            android:text="@string/des"/>
     </LinearLayout>
 
     <ImageButton
