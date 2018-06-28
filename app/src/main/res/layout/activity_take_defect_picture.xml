@@ -26,6 +26,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/forward_arrow"
         app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="go_to_next_screen"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
