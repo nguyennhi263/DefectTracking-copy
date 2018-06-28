@@ -9,25 +9,38 @@
         android:orientation="horizontal"
         android:weightSum="10"
         android:layout_height="wrap_content"
-        android:background="@color/White"
-        android:layout_marginTop="1dp">
+        android:background="@color/Black"
+        android:layout_marginTop="1dp"
+        android:paddingTop="5dp">
 
         <Button
             android:id="@+id/defectItemStatus"
-            android:layout_weight="0.5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-        <TextView
-            android:id="@+id/defectPlacetxt"
-            android:layout_weight="4.5"
+            android:layout_weight="1.5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="Room"/>
+            android:padding="5dp"
+            android:background="@color/White"
+            android:layout_marginRight="1dp"/>
+        <TextView
+            android:background="@color/White"
+            android:id="@+id/defectPlacetxt"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Room"
+            android:padding="15dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"/>
         <TextView
             android:id="@+id/defectTypetxt"
-            android:layout_weight="5"
+            android:layout_weight="4.5"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="Defect Type"/>
+            android:layout_height="wrap_content"
+            android:text="Defect Type"
+            android:padding="15dp"
+            android:background="@color/White"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="1dp"/>
     </LinearLayout>
 </LinearLayout>
