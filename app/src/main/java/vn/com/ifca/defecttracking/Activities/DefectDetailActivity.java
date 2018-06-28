@@ -1,10 +1,12 @@
 package vn.com.ifca.defecttracking.Activities;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -13,6 +15,8 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -72,7 +76,7 @@ public class DefectDetailActivity extends AppCompatActivity {
     Dialog dialogContractor;
     ProgressDialog pDialog;
     Spinner defectPlaceSpin,tradeDTSpin,descriptionDTSpin;
-    private static final int CAMERA_REQUEST = 1888;
+    private static final int CAMERA_REQUEST = 0;
     ArrayList<DefectPlace> listDefectPlace;
     ArrayList<Trade> listTrade;
     ArrayList<Description> listDesc;
@@ -106,6 +110,8 @@ public class DefectDetailActivity extends AppCompatActivity {
         placeSpinAdapter = new DefectPlaceSpinAdapter(getApplicationContext(),listDefectPlace);
         tradeSpinAdapter = new TradeSpinAdapter(getApplicationContext(),listTrade);
         descriptionAdapter = new DescriptionSpinAdapter(getApplicationContext(),listDesc);
+        ipconfig ip= new ipconfig();
+        String urlImage = ip.getIpImage();
         // back button on tool bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         defectItem = new DefectItem(getApplicationContext());
@@ -125,10 +131,11 @@ public class DefectDetailActivity extends AppCompatActivity {
         txtLocation.setText(tDefectPlace);
         txtTrade.setText(tTrade);
         txtNote.setText(tNote);
+
         txtAssign.setText(tAssign);
-        Picasso.with(getApplication()).load("http://demo.ifca.com.vn:2603/_IFCA_WebServer/pictures/"+tImageFileName+".JPG")
+        Picasso.with(getApplication()).load(urlImage+tImageFileName+".JPG")
                 .into(imageViewDownload);
-        Picasso.with(getApplicationContext()).load("http://demo.ifca.com.vn:2603/_IFCA_WebServer/pictures/"+tImageAfter+".JPG")
+        Picasso.with(getApplicationContext()).load(urlImage+tImageAfter+".JPG")
                 .into(imageClose);
 
         if (tStatus.equals("2")){
@@ -165,10 +172,15 @@ public class DefectDetailActivity extends AppCompatActivity {
         takePiture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                File file = new File(Environment.getExternalStorageDirectory()+File.separator + "imageclose.jpg");
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-                startActivityForResult(intent, CAMERA_REQUEST);
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                }
+                else{
+                    ActivityCompat.requestPermissions(DefectDetailActivity.this,
+                            new String[] {Manifest.permission.CAMERA}, 0);
+                }
             }
         });
 
@@ -180,7 +192,7 @@ public class DefectDetailActivity extends AppCompatActivity {
                 // show dialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(DefectDetailActivity.this);
                 builder.setTitle("Close Defect");
-                builder.setMessage("Would you like to attrach picture?");
+                builder.setMessage("Would you like to attach picture?");
                 builder.setCancelable(true);
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -256,7 +268,7 @@ public class DefectDetailActivity extends AppCompatActivity {
         if (tImageAfter == "null"){
             imageClose.setVisibility(View.INVISIBLE);
         }
-        Picasso.with(getApplicationContext()).load("http://demo.ifca.com.vn:2603/_IFCA_WebServer/pictures/"+tImageAfter+".JPG")
+        Picasso.with(getApplicationContext()).load("http://demo.ifca.com.vn:6789/_IFCA_WebServer/pictures/"+tImageAfter+".JPG")
                 .into(imageClose);
     }
 
@@ -534,10 +546,7 @@ public class DefectDetailActivity extends AppCompatActivity {
         int datetime = new Date().getDate();
         if (resultCode == RESULT_OK){
             if (requestCode == CAMERA_REQUEST){
-                File file = new File(Environment.getExternalStorageDirectory()+File.separator +
-                        "imageclose.jpg");
-                Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 500, 250);
-                bitmap = RotateBitmap(bitmap,90);
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
                 imageDialogCloseDefect.setImageBitmap(bitmap);
                 imageText = getStringImage(bitmap);
             }
