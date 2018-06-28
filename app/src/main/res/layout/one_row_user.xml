@@ -20,7 +20,7 @@
             android:background="@color/Black"
             android:id="@+id/imageView3"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/engineer"
             android:padding="5dp"
@@ -31,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="3dp"
-            android:layout_weight="9"
+            android:layout_weight="8.5"
             android:orientation="vertical"
             android:weightSum="10">
 
