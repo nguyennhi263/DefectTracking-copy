@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import vn.com.ifca.defecttracking.Model.Block;
 import vn.com.ifca.defecttracking.Model.Floor;
 import vn.com.ifca.defecttracking.R;
 
@@ -17,7 +16,7 @@ import vn.com.ifca.defecttracking.R;
  * Created by Nhi on 6/28/2018.
  */
 
-public class FloorAdapter  extends BaseAdapter {
+public class FloorAdapter extends BaseAdapter {
     Context context;
     ArrayList<Floor> listFloor;
     LayoutInflater inflter;

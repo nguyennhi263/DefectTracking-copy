@@ -2,12 +2,13 @@ package vn.com.ifca.defecttracking.Activities;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -67,6 +68,7 @@ public class DefectManagementActivity extends AppCompatActivity {
     Project projectCur;
     Block blockCur;
     Phase phaseCur;
+    Button backButton;
     @Override
     protected void onStart() {
         super.onStart();
@@ -97,6 +99,13 @@ public class DefectManagementActivity extends AppCompatActivity {
         listProject = new ArrayList<>();
         listDefectHeader = new ArrayList<>();
         unitText = findViewById(R.id.unitText);
+        backButton = findViewById(R.id.b);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                exit();
+            }
+        });
         new GetProject().execute();
         ImageButton filter = findViewById(R.id.project_filterBtn);
         final LinearLayout filterLayout = findViewById(R.id.filter_project);
@@ -188,7 +197,9 @@ public class DefectManagementActivity extends AppCompatActivity {
         String datetime = dateformat.format(date);
         return datetime;
     }
-
+    public void exit(){
+        this.finish();
+    }
     @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
         switch (item.getItemId()) {

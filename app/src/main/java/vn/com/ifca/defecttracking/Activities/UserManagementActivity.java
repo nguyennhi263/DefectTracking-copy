@@ -43,7 +43,7 @@ public class UserManagementActivity extends AppCompatActivity {
     List<User> userList;
     List<String> preStatus;
     ListView lvUser;
-    Button saveBtn;
+    Button saveBtn, backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +55,13 @@ public class UserManagementActivity extends AppCompatActivity {
         userList = new ArrayList<>();
         preStatus = new ArrayList<>();
         lvUser = (ListView) findViewById(R.id.lvUser);
+        backButton = findViewById(R.id.b);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                exit();
+            }
+        });
         new GetListUser().execute();
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +75,9 @@ public class UserManagementActivity extends AppCompatActivity {
                 new GetListUser().execute();
             }
         });
+    }
+    public void exit(){
+        this.finish();
     }
     /*
         * Intent back screen
