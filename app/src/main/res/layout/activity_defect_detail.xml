@@ -297,7 +297,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/defectBefore"
+                    android:text="@string/defectAfter"
                     android:textColor="@color/White"
                     android:paddingTop="20dp"
                     android:paddingLeft="20dp"
