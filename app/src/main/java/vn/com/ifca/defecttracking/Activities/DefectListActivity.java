@@ -3,8 +3,10 @@ package vn.com.ifca.defecttracking.Activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -44,6 +46,7 @@ public class DefectListActivity extends AppCompatActivity {
     HashMap<String, String> user;
     String level,userID;
     String defectHeaderID;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,13 @@ public class DefectListActivity extends AppCompatActivity {
         userID=  user.get(SessionManager.KEY_ID);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        backButton = findViewById(R.id.b);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                go_to_back();
+            }
+        });
         if (bundle != null) {
             String title = bundle.getString("DefectHeaderLocation", "");
             setTitle(title);
@@ -69,7 +79,9 @@ public class DefectListActivity extends AppCompatActivity {
 
 
     }
-
+    public void go_to_back(){
+        this.finish();
+    }
     private Date StringToDate(String s){
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
