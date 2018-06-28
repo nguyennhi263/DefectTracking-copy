@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             app:srcCompat="@drawable/engineer"
             android:padding="5dp"
-            android:layout_marginRight="1dp"/>
+            android:layout_marginRight="0.5dp"/>
 
         <LinearLayout
             android:background="@color/Black"
