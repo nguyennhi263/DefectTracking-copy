@@ -1,85 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
-    android:orientation="vertical"
-    android:background="@color/backgroudFrag"
+    android:background="@color/Black"
     tools:context="vn.com.ifca.defecttracking.Activities.UserManagementActivity">
 
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:orientation="horizontal"
-        android:weightSum="10">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="7"
-            android:text="User management"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="25dp" />
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/lvUser"
-        android:layout_width="368dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="20dp"
-        android:layout_weight="9"
-        android:layout_marginBottom="20dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"></ListView>
     <!--Footer-->
     <LinearLayout
-        android:layout_weight="0.8"
+        android:id="@+id/linearLayout9"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="12"
-        android:layout_marginLeft="-10dp"
-
-        android:orientation="horizontal">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/b"
-            android:layout_weight="4"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:text="Back"
-            android:onClick="go_to_back_screen"/>
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@color/Orange"
+            android:text="Back"/>
 
         <Button
             android:id="@+id/a"
-            android:layout_weight="4"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:text="Home"
-            android:onClick="go_to_home_screen"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@color/Orange"
+            android:text="Home" />
 
         <Button
             android:id="@+id/saveBtn"
-            android:layout_weight="4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="@color/Orange"
             android:text="save" />
     </LinearLayout>
     <!--End of Footer-->
-</LinearLayout>
+    <!--List of User-->
+    <ListView
+        android:id="@+id/lvUser"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"></ListView>
+    <!--End of list of User-->
+</android.support.constraint.ConstraintLayout>
