@@ -74,7 +74,12 @@ public class DefectManagementActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // hide support bar
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_defect_management);
+        /*
+        *   Initial
+        * */
         ipconfig = new ipconfig();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         spPhase = findViewById(R.id.spPhase);
