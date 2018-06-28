@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,9 +36,9 @@
     <LinearLayout
         android:id="@+id/filter_project"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="30dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
         android:background="#CCCCCC"
         android:orientation="vertical"
@@ -56,13 +56,12 @@
             android:layout_weight="1"
             android:background="@color/White"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:padding="5dp"
             android:weightSum="4">
 
             <TextView
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
-                android:padding="10dp"
                 android:text="Project" />
 
             <Spinner
@@ -80,13 +79,12 @@
             android:layout_weight="1"
             android:background="@color/White"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:padding="5dp"
             android:weightSum="4">
 
             <TextView
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
-                android:padding="10dp"
                 android:text="Phase" />
 
             <Spinner
@@ -104,13 +102,12 @@
             android:layout_weight="1"
             android:background="@color/White"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:padding="5dp"
             android:weightSum="4">
 
             <TextView
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
-                android:padding="10dp"
                 android:text="Block" />
 
             <Spinner
@@ -128,13 +125,12 @@
             android:layout_weight="1"
             android:background="@color/White"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:padding="5dp"
             android:weightSum="4">
 
             <TextView
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
-                android:padding="10dp"
                 android:text="Unit" />
 
             <EditText
@@ -145,6 +141,10 @@
                 android:layout_weight="4"
                 android:background="@color/White"></EditText>
         </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/Black"/>
     </LinearLayout>
 
     <LinearLayout
