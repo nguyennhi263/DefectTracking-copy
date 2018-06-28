@@ -6,11 +6,13 @@ package vn.com.ifca.defecttracking.Model;
 
 public class ipconfig {
      private String ipconfig= "http://demo.ifca.com.vn:6789/_IFCA_WebServer/process.php";
+     private String ipImage = "http://demo.ifca.com.vn:6789/_IFCA_WebServer/pictures/";
    // private String ipconfig= "http://192.168.0.19:8080/_IFCA_WebServer/process.php";
     //private String ipconfig= "http://14.161.24.150:8765/_IFCA_WebServer/process.php";
     public String getIpconfig() {
         return ipconfig;
     }
+    public String getIpImage(){return ipImage;}
     public ipconfig() {
     }
     public ipconfig(String ipconfig) {

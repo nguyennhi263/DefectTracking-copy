@@ -3,8 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DefectTracking.iml" filepath="$PROJECT_DIR$/DefectTracking.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DefectTracking-copy.iml" filepath="$PROJECT_DIR$/DefectTracking-copy.iml" />
-      <module fileurl="file://D:/GitShare/DefectTracking/DefectTracking-copy.iml" filepath="D:/GitShare/DefectTracking/DefectTracking-copy.iml" />
+      <module fileurl="file://D:\GitShare\DefectTracking\DefectTracking-copy.iml" filepath="D:\GitShare\DefectTracking\DefectTracking-copy.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
