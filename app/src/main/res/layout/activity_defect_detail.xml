@@ -19,32 +19,18 @@
             android:orientation="vertical"
             android:weightSum="10">
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Defect Detail"
-                android:textAlignment="center"
-                android:textColor="@color/White"
-                android:textSize="18dp"
-                android:padding="7dp"
-                android:textStyle="bold"
-                android:background="@color/Black"
-                android:layout_marginBottom="1dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:weightSum="1.75"
-                android:background="@color/Black">
+                android:background="@color/Black"
+                android:paddingTop="10dp">
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
-                    android:layout_weight="0.75"
                     android:text="Location:"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
@@ -52,31 +38,40 @@
                 <TextView
                     android:id="@+id/txtLocation"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="2dp"
                     android:layout_weight="1"
-                    android:text="defect place"
+                    android:text="defect location"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18dp"
                     android:padding="5dp"
-                    android:textStyle="bold"/>
+                    android:visibility="visible"/>
+                <Spinner
+                    android:id="@+id/placeDTSpin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="@color/White"
+                    android:visibility="gone"
+                    android:padding="5dp"></Spinner>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:weightSum="1.75"
                 android:background="@color/Black"
                 android:layout_marginTop="0.5dp">
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
-                    android:layout_weight="0.75"
                     android:text="Trade name:"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
@@ -84,30 +79,37 @@
                 <TextView
                     android:id="@+id/txtTrade"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="2dp"
-                    android:layout_weight="1"
+                    android:padding="5dp"
                     android:text="trade_name"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18dp"
-                    android:padding="5dp"
-                    android:textStyle="bold"/>
+                    android:textSize="18dp"/>
+                <Spinner
+                    android:id="@+id/tradeDTSpin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="@color/White"
+                    android:visibility="gone"
+                    android:padding="5dp"></Spinner>
             </LinearLayout>
             <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="1.75"
             android:background="@color/Black"
             android:layout_marginTop="0.5dp">
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="2dp"
-                    android:layout_weight="0.75"
                     android:text="Description:"
                     android:textColor="@color/White"
                     android:textStyle="bold"/>
@@ -115,16 +117,24 @@
                 <TextView
                     android:id="@+id/txtDes"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="2dp"
-                    android:layout_weight="1"
                     android:text="description_detail"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18dp"
-                    android:padding="5dp"
-                    android:textStyle="bold"/>
+                    android:padding="5dp"/>
+                <Spinner
+                    android:id="@+id/descriptionDTSpin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="@color/White"
+                    android:visibility="gone"
+                    android:padding="5dp"></Spinner>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,8 +164,7 @@
                     android:text="20/2/1698"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18dp"
-                    android:padding="5dp"
-                    android:textStyle="bold"/>
+                    android:padding="5dp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -184,8 +193,7 @@
                     android:text="contractor_name"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18dp"
-                    android:padding="5dp"
-                    android:textStyle="bold"/>
+                    android:padding="5dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -216,8 +224,7 @@
                     android:text="some_note"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18dp"
-                    android:padding="5dp"
-                    android:textStyle="bold"/>
+                    android:padding="5dp" />
             </LinearLayout>
             <EditText
                 android:background="@color/Orange"

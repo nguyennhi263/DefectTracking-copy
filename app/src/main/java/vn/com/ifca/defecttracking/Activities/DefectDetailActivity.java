@@ -96,9 +96,9 @@ public class DefectDetailActivity extends AppCompatActivity {
         checkComplete = (CheckBox) findViewById(R.id.checkComplete);
         CloseDefectBtn = (Button) findViewById(R.id.CloseDefectBtn);
         editDefectDetail = (Button) findViewById(R.id.editDefectDetail);
-     //   defectPlaceSpin = (Spinner) findViewById(R.id.placeDTSpin);
-     //   tradeDTSpin = (Spinner) findViewById(R.id.tradeDTSpin);
-      //  descriptionDTSpin = (Spinner) findViewById(R.id.descriptionDTSpin);
+        defectPlaceSpin = (Spinner) findViewById(R.id.placeDTSpin);
+        tradeDTSpin = (Spinner) findViewById(R.id.tradeDTSpin);
+        descriptionDTSpin = (Spinner) findViewById(R.id.descriptionDTSpin);
         editNote = (EditText) findViewById(R.id.editNote);
         listDefectPlace = new ArrayList<DefectPlace>();
         listTrade = new ArrayList<Trade>();
