@@ -8,36 +8,36 @@
         <item
             android:id="@+id/dashboard"
             android:icon="@drawable/report"
-            android:title="Dashboard" />
+            android:title="@string/dashboard" />
         <item
             android:id="@+id/add_defect"
             android:icon="@drawable/addnewdefect"
-            android:title="Add New Defect" />
+            android:title="@string/addNewDefect" />
         <item
             android:id="@+id/defect_management"
             android:icon="@drawable/defect_display"
-            android:title="Defect Management"/>
+            android:title="@string/defectManage"/>
         <item
             android:id="@+id/user_management"
             android:icon="@drawable/people_icon"
-            android:title="User Management" />
+            android:title="@string/userManage" />
 
     </group>
 
-    <item android:title="Personal">
+    <item android:title="@string/personal">
         <menu>
             <item
             android:id="@+id/setting"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Setting" />
+            android:title="@string/setting" />
             <item
                 android:id="@+id/logout"
                 android:icon="@drawable/exit"
-                android:title="Log out" />
+                android:title="@string/logOut" />
             <item
                 android:id="@+id/exit"
                 android:icon="@drawable/cross_icon"
-                android:title="Exit" />
+                android:title="@string/exit" />
         </menu>
     </item>
 

@@ -28,7 +28,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
             android:layout_weight="6"
-            android:text="Unit No."
+            android:text="@string/unitNo"
             android:textSize="18sp"
             android:textStyle="bold"
             android:padding="4dp"/>

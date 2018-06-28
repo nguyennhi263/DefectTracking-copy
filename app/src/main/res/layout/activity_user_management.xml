@@ -25,7 +25,7 @@
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/Orange"
-            android:text="Back"/>
+            android:text="@string/backBtn"/>
 
         <Button
             android:id="@+id/a"
@@ -35,7 +35,7 @@
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/Orange"
-            android:text="Home" />
+            android:text="@string/homeBtn" />
 
         <Button
             android:id="@+id/saveBtn"
@@ -44,7 +44,7 @@
             android:layout_marginLeft="1dp"
             android:layout_weight="1"
             android:background="@color/Orange"
-            android:text="save" />
+            android:text="@string/saveBtn" />
     </LinearLayout>
     <!--End of Footer-->
     <!--List of User-->

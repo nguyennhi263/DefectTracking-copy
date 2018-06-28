@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Fixed Defect"
+            android:text="@string/fixedDefect"
             android:textAlignment="center"
             android:textColor="@color/Black"
             android:textSize="17dp"
@@ -63,7 +63,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="Take Picture"
+                android:text="@string/takePic"
                 android:textStyle="bold"/>
 
             <Button
@@ -74,7 +74,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="Submit"
+                android:text="@string/submitBtn"
                 android:textStyle="bold"/>
         </LinearLayout>
 
