@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,7 +48,7 @@ public View getView(final int position, @Nullable View convertView, @NonNull Vie
         TextView defectPlace = (TextView) listView.findViewById(R.id.defectPlacetxtConfirm);
         TextView tradeName = (TextView) listView.findViewById(R.id.tradeConfirm);
         TextView defectDescription = (TextView) listView.findViewById(R.id.descriptionConfirm);
-        Button deleteBtn = (Button) listView.findViewById(R.id.deleteDefectItemConfirmBtn);
+        ImageButton deleteBtn = (ImageButton) listView.findViewById(R.id.deleteDefectItemConfirmBtn);
         ImageView imageView = (ImageView) listView.findViewById(R.id.imageConfirm);
         final Defect defect = defectList.get(position);
         if (position%2 == 0){

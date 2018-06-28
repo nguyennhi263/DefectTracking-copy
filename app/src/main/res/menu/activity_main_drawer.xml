@@ -15,11 +15,11 @@
             android:title="Add New Defect" />
         <item
             android:id="@+id/defect_management"
-            android:icon="@drawable/gear"
-            android:title="Defect Management" />
+            android:icon="@drawable/defect_display"
+            android:title="Defect Management"/>
         <item
             android:id="@+id/user_management"
-            android:icon="@drawable/job"
+            android:icon="@drawable/people_icon"
             android:title="User Management" />
 
     </group>
@@ -36,7 +36,7 @@
                 android:title="Log out" />
             <item
                 android:id="@+id/exit"
-                android:icon="@drawable/exit"
+                android:icon="@drawable/cross_icon"
                 android:title="Exit" />
         </menu>
     </item>
