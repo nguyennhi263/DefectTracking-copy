@@ -534,7 +534,7 @@ public class DefectDetailActivity extends AppCompatActivity {
     }
 
     public void go_to_back_screen(){
-        super.onBackPressed();
+        //super.onBackPressed();
         this.finish();
     }
 
