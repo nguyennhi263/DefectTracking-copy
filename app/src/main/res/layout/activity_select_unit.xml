@@ -25,7 +25,7 @@
                 android:layout_width="105dp"
                 android:layout_height="match_parent"
                 android:padding="22dp"
-                android:text="Project"
+                android:text="@string/project"
                 android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -52,7 +52,7 @@
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:padding="22dp"
-                android:text="Phase"
+                android:text="@string/phase"
                 android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -79,7 +79,7 @@
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:padding="22dp"
-                android:text="Block"
+                android:text="@string/block"
                 android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -106,7 +106,7 @@
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:padding="22dp"
-                android:text="Floor"
+                android:text="@string/floor"
                 android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -133,7 +133,7 @@
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:padding="22dp"
-                android:text="Unit"
+                android:text="@string/unit"
                 android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -164,7 +164,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:onClick="go_to_back_screen"
-            android:text="Back" />
+            android:text="@string/backBtn" />
 
         <Button
             android:id="@+id/button4"
@@ -175,7 +175,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:onClick="go_to_homescreen"
-            android:text="Home" />
+            android:text="@string/homeBtn" />
 
         <Button
             android:id="@+id/button2"
@@ -185,7 +185,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:onClick="go_to_select_trade_screen"
-            android:text="Next" />
+            android:text="@string/nextBtn" />
     </LinearLayout>
 
     <ImageView
