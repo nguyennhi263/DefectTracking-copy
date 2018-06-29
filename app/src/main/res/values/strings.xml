@@ -1,15 +1,15 @@
 <resources>
-    <string name="app_name">DefectTracking</string>
+    <string name="app_name" translatable="false">DefectTracking</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="url" translatable="false">URL</string>
     <string name="urlTextEdit">Enter URL</string>
     <string name="action_settings">Settings</string>
     <string name="Cancel">Cancel</string>
     <string name="OK" translatable="false">OK</string>
-    <string name="logInToastUsername">Enter your username!</string>
-    <string name="logInToastPassword">Enter your password!</string>
+    <string name="logInToastUsername">Enter your username</string>
+    <string name="logInToastPassword">Enter your password</string>
     <string name="logInSuccess">Hello </string>
     <string name="updateURL">Updated URL</string>
     <string name="logInUsernameHint">Username</string>
@@ -38,7 +38,7 @@
     <string name="block">Block</string>
     <string name="unit">Unit</string>
     <string name="dateCreated">Date Created</string>
-    <string name="roomNo">Room No.</string>
+    <string name="roomNo">Unit No.</string>
     <string name="defectManage">Defect Management</string>
     <string name="selectLocate">Select Location:</string>
     <string name="type">Type:</string>
