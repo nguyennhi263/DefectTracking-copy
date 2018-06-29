@@ -1,6 +1,7 @@
 package vn.com.ifca.defecttracking;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -16,17 +17,35 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 import vn.com.ifca.defecttracking.Activities.DefectManagementActivity;
 import vn.com.ifca.defecttracking.Activities.LogInActivity;
 import vn.com.ifca.defecttracking.Activities.SelectUnitActivity;
 import vn.com.ifca.defecttracking.Activities.UserManagementActivity;
+import vn.com.ifca.defecttracking.Adapter.DefectPlaceSpinAdapter;
+import vn.com.ifca.defecttracking.Model.DefectPlace;
 import vn.com.ifca.defecttracking.Model.SessionManager;
+import vn.com.ifca.defecttracking.Model.ipconfig;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     SessionManager sessionManager;
     boolean doubleBackToExitPressedOnce = false;
-    private WebView mWebView = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,16 +74,7 @@ public class MainActivity extends AppCompatActivity
         else {
             sessionManager.checkLogin();
         }
-        /*
-        *   Webview
-        * */
-        mWebView = (WebView) findViewById(R.id.webView);
-        mWebView.setWebViewClient(new MyBroswer());
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.getSettings().getLoadsImagesAutomatically();
-        mWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
-        //  mWebView.loadUrl("http://google.com.vn");
-        mWebView.loadUrl("http://demo.ifca.com.vn:6868/bi/report/view/embedded/51192c5271633c824bc6560e42fb3b43");
+
     }
 
     @Override
@@ -148,4 +158,5 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
     }
+  
 }
