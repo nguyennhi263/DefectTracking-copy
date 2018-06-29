@@ -47,18 +47,20 @@
                     android:layout_marginBottom="0.5dp"
                     android:background="@color/Black"
                     android:orientation="horizontal"
-                    android:padding="10dp"
                     android:weightSum="12">
 
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="7"
                         android:text="@string/defectCToday"
                         android:textColor="@color/Orange"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:paddingRight="5dp"/>
 
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=":"
@@ -66,9 +68,10 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:padding="10dp"
                         android:id="@+id/today_defect_closed"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="5"
                         android:text="0"
                         android:textAlignment="center"
@@ -82,18 +85,20 @@
                     android:layout_marginBottom="0.5dp"
                     android:background="@color/Black"
                     android:orientation="horizontal"
-                    android:padding="10dp"
                     android:weightSum="12">
 
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="7"
                         android:text="@string/defectFound"
                         android:textColor="@color/Orange"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:paddingRight="5dp"/>
 
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=":"
@@ -101,9 +106,10 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:padding="10dp"
                         android:id="@+id/today_defect_found"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="5"
                         android:text="100"
                         android:textAlignment="center"
@@ -117,18 +123,20 @@
                     android:layout_marginBottom="0.5dp"
                     android:background="@color/Black"
                     android:orientation="horizontal"
-                    android:padding="10dp"
                     android:weightSum="12">
 
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="7"
                         android:text="@string/complaintToday"
                         android:textColor="@color/Orange"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:paddingRight="5dp"/>
 
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=":"
@@ -136,9 +144,10 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:padding="10dp"
                         android:id="@+id/today_complaint_unit"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="5"
                         android:text="100"
                         android:textAlignment="center"
@@ -169,30 +178,32 @@
                     android:orientation="horizontal"
                     android:weightSum="12"
                     android:background="@color/Black"
-                    android:padding="10dp"
                     android:layout_marginBottom="0.5dp">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="7"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="@string/complaint"
                         android:textColor="@color/Orange"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:padding="10dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=":"
                         android:textColor="@color/Orange"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:padding="10dp"/>
                     <TextView
                         android:id="@+id/tot_complaint_unit_remain"
                         android:layout_width="0dp"
                         android:layout_weight="5"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="50"
                         android:textSize="18sp"
                         android:textColor="@color/Orange"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center"
+                        android:padding="10dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -200,26 +211,28 @@
                     android:orientation="horizontal"
                     android:weightSum="12"
                     android:background="@color/Black"
-                    android:padding="10dp"
                     android:layout_marginBottom="0.5dp">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="7"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="@string/totDefect"
                         android:textColor="@color/Orange"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:padding="10dp"/>
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=":"
                         android:textColor="@color/Orange"
                         android:textStyle="bold"/>
                     <TextView
+                        android:padding="10dp"
                         android:id="@+id/tot_defect"
                         android:layout_width="0dp"
                         android:layout_weight="5"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="203"
                         android:textSize="18sp"
                         android:textColor="@color/Orange"
@@ -231,30 +244,32 @@
                     android:orientation="horizontal"
                     android:weightSum="12"
                     android:background="@color/Black"
-                    android:padding="10dp"
                     android:layout_marginBottom="0.5dp">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="7"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="@string/totDefectC"
                         android:textColor="@color/Orange"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:padding="10dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=":"
                         android:textColor="@color/Orange"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:padding="10dp"/>
                     <TextView
                         android:id="@+id/tot_defect_closed"
                         android:layout_width="0dp"
                         android:layout_weight="5"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="0"
                         android:textSize="18sp"
                         android:textColor="@color/Orange"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center"
+                        android:padding="10dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -262,26 +277,29 @@
                     android:orientation="horizontal"
                     android:weightSum="12"
                     android:background="@color/Black"
-                    android:padding="10dp"
                     android:layout_marginBottom="0.5dp">
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="0dp"
                         android:layout_weight="7"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="@string/totDefectR"
                         android:textColor="@color/Orange"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:paddingRight="5dp"/>
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=":"
                         android:textColor="@color/Orange"
                         android:textStyle="bold"/>
                     <TextView
+                        android:padding="10dp"
                         android:id="@+id/tot_defect_remain"
                         android:layout_width="0dp"
                         android:layout_weight="5"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="203"
                         android:textSize="18sp"
                         android:textColor="@color/Orange"
@@ -293,26 +311,29 @@
                     android:orientation="horizontal"
                     android:weightSum="12"
                     android:background="@color/Black"
-                    android:padding="10dp"
                     android:layout_marginBottom="0.5dp">
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="0dp"
                         android:layout_weight="7"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="@string/defectOut"
                         android:textColor="@color/Orange"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:paddingRight="5dp"/>
                     <TextView
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=":"
                         android:textColor="@color/Orange"
                         android:textStyle="bold"/>
                     <TextView
+                        android:padding="10dp"
                         android:id="@+id/tot_defect_ageing"
                         android:layout_width="0dp"
                         android:layout_weight="5"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="203"
                         android:textSize="18sp"
                         android:textColor="@color/Orange"

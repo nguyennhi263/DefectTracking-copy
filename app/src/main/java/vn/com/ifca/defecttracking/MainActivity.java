@@ -3,11 +3,8 @@ package vn.com.ifca.defecttracking;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.Bundle;
-
 import android.os.Handler;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,37 +12,19 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
 import vn.com.ifca.defecttracking.Activities.DefectManagementActivity;
 import vn.com.ifca.defecttracking.Activities.LogInActivity;
 import vn.com.ifca.defecttracking.Activities.SelectUnitActivity;
 import vn.com.ifca.defecttracking.Activities.UserManagementActivity;
-import vn.com.ifca.defecttracking.Adapter.DefectPlaceSpinAdapter;
-import vn.com.ifca.defecttracking.Model.DefectPlace;
 import vn.com.ifca.defecttracking.Model.LanguagePf;
 import vn.com.ifca.defecttracking.Model.SessionManager;
-import vn.com.ifca.defecttracking.Model.ipconfig;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -86,7 +65,6 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -103,7 +81,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

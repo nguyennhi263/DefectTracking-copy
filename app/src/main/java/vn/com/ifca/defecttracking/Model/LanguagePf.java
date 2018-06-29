@@ -12,7 +12,6 @@ import java.util.Locale;
 public class LanguagePf {
     private SharedPreferences langPreferences;
     private String sharedPrefFile = "vn.com.ifca.reportdashboard";
-    Locale myLocale;
     public void initialize(Context context, Resources res){
         langPreferences = context.getSharedPreferences(sharedPrefFile, context.MODE_PRIVATE);
         String setLang = langPreferences.getString("language", "toast");
