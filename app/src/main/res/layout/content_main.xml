@@ -32,7 +32,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Total Statistics"
+                    android:text="@string/totStats"
                     android:textColor="@color/White"
                     android:padding="15dp"
                     android:textStyle="bold"
@@ -51,7 +51,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="7"
                         android:layout_height="match_parent"
-                        android:text="Complaint Unit(s) Remaining"
+                        android:text="@string/complaint"
                         android:textColor="@color/Orange"
                         android:textSize="16sp"/>
                     <TextView
@@ -82,7 +82,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="7"
                         android:layout_height="match_parent"
-                        android:text="Total Defect(s)"
+                        android:text="@string/totDefect"
                         android:textColor="@color/Orange"
                         android:textSize="16sp"/>
                     <TextView
@@ -113,7 +113,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="7"
                         android:layout_height="match_parent"
-                        android:text="Total Defect(s) Closed"
+                        android:text="@string/totDefectC"
                         android:textColor="@color/Orange"
                         android:textSize="16sp"/>
                     <TextView
@@ -144,7 +144,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="7"
                         android:layout_height="match_parent"
-                        android:text="Total Defect(s) Remaining"
+                        android:text="@string/totDefectR"
                         android:textColor="@color/Orange"
                         android:textSize="16sp"/>
                     <TextView
@@ -175,7 +175,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="7"
                         android:layout_height="match_parent"
-                        android:text="Defect(s) Outstanding Ageing"
+                        android:text="@string/defectOut"
                         android:textColor="@color/Orange"
                         android:textSize="16sp"/>
                     <TextView
@@ -203,7 +203,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Today's Statistics"
+                    android:text="@string/todayStats"
                     android:textColor="@color/White"
                     android:padding="15dp"
                     android:textStyle="bold"
@@ -222,7 +222,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="7"
                         android:layout_height="match_parent"
-                        android:text="Defect(s) Closed Today"
+                        android:text="@string/defectCToday"
                         android:textColor="@color/Orange"
                         android:textSize="16sp"/>
                     <TextView
@@ -253,7 +253,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="7"
                         android:layout_height="match_parent"
-                        android:text="Defect(s) Found Today"
+                        android:text="@string/defectFound"
                         android:textColor="@color/Orange"
                         android:textSize="16sp"/>
                     <TextView
@@ -284,7 +284,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="7"
                         android:layout_height="match_parent"
-                        android:text="Complaint Unit Today"
+                        android:text="@string/complaintToday"
                         android:textColor="@color/Orange"
                         android:textSize="16sp"/>
                     <TextView
