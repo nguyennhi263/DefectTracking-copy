@@ -53,7 +53,7 @@ public class LogInActivity extends AppCompatActivity {
         txtpass = (EditText) findViewById(R.id.txtPassword);
         loginbtn = (CardView) findViewById(R.id.LoginBtn);
         progressLogin = (ProgressBar) findViewById(R.id.progressLogin);
-
+        progressLogin.setVisibility(View.INVISIBLE);
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
