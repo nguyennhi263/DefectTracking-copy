@@ -64,7 +64,7 @@
     <string name="totStats">Số liệu tổng kết</string>
     <string name="complaint">Tổng số căn hộ còn lỗi</string>
     <string name="totDefect">Tổng số lỗi</string>
-    <string name="totDefectC">Tổng số lỗi đóngđã đóng</string>
+    <string name="totDefectC">Tổng số lỗi đóng đã đóng</string>
     <string name="totDefectR">Tổng số lỗi hiện tại</string>
     <string name="defectOut">Tổng số lỗi vượt quá ngày hẹn</string>
     <string name="todayStats">Thống kê hôm nay</string>

@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         lang = new LanguagePf();
-        lang.initialize(getApplicationContext(), res);
+        res = this.getResources();
+        lang.initialize(getApplicationContext(), this.getResources());
 
         sessionManager = new SessionManager(getApplicationContext());
 
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.user_management) {
             startActivity(new Intent(this, UserManagementActivity.class));
-        } else if (id == R.id.setting) {
+        } else if (id == R.id.language_options) {
             final Dialog languageContractor = new Dialog(MainActivity.this);
             languageContractor.setContentView(R.layout.language_options);
             languageContractor.setCancelable(true);
