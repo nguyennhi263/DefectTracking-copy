@@ -1,6 +1,8 @@
 package vn.com.ifca.defecttracking;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -15,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -39,6 +43,7 @@ import vn.com.ifca.defecttracking.Activities.SelectUnitActivity;
 import vn.com.ifca.defecttracking.Activities.UserManagementActivity;
 import vn.com.ifca.defecttracking.Adapter.DefectPlaceSpinAdapter;
 import vn.com.ifca.defecttracking.Model.DefectPlace;
+import vn.com.ifca.defecttracking.Model.LanguagePf;
 import vn.com.ifca.defecttracking.Model.SessionManager;
 import vn.com.ifca.defecttracking.Model.ipconfig;
 
@@ -46,6 +51,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     SessionManager sessionManager;
     boolean doubleBackToExitPressedOnce = false;
+    LanguagePf lang;
+    Resources res;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +67,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        lang = new LanguagePf();
+        lang.initialize(getApplicationContext(), res);
 
         sessionManager = new SessionManager(getApplicationContext());
 
@@ -136,6 +145,48 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.user_management) {
             startActivity(new Intent(this, UserManagementActivity.class));
         } else if (id == R.id.setting) {
+            final Dialog languageContractor = new Dialog(MainActivity.this);
+            languageContractor.setContentView(R.layout.language_options);
+            languageContractor.setCancelable(true);
+            Button cancelBtn = languageContractor.findViewById(R.id.cancel_language);
+            final Button okBtn = languageContractor.findViewById(R.id.confirm_language);
+            final RadioButton english = languageContractor.findViewById(R.id.english_language_option);
+            final RadioButton viet = languageContractor.findViewById(R.id.vietnamese_language_option);
+            if (lang.getPreferences().equals("en")) english.toggle();
+            else viet.toggle();
+            okBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (english.isChecked() == false && viet.isChecked() == false) {
+                        Toast.makeText(getApplicationContext(), "@string/languageWarning", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (english.isChecked()) {
+                        lang.changeLanguage(res, "en");
+                        lang.updatePreferences("en");
+
+                        languageContractor.dismiss();
+                        finish();
+                        startActivity(getIntent());
+                    }
+                    else {
+                        lang.changeLanguage(res, "vi");
+                        lang.updatePreferences("vi");
+                        languageContractor.dismiss();
+                        finish();
+                        startActivity(getIntent());
+                    }
+                }
+
+
+            });
+            // Cancel
+            cancelBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    languageContractor.dismiss();
+                }
+            });
+            languageContractor.show();
 
         } else if (id == R.id.logout){
             Toast.makeText(getApplicationContext(),"log out",Toast.LENGTH_SHORT).show();
