@@ -21,6 +21,10 @@
             android:id="@+id/user_management"
             android:icon="@drawable/people_icon"
             android:title="@string/userManage" />
+        <item
+            android:id="@+id/language_options"
+            android:icon="@drawable/language_icon"
+            android:title="@string/languageBtn" />
 
     </group>
 
