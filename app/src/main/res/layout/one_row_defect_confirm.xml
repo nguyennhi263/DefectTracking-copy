@@ -73,6 +73,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1.5"
             android:background="@color/White"
-            app:srcCompat="@drawable/cross_icon"/>
+            app:srcCompat="@drawable/cancel_icon"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
