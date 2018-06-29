@@ -51,9 +51,9 @@ public View getView(final int position, @Nullable View convertView, @NonNull Vie
         ImageButton deleteBtn = (ImageButton) listView.findViewById(R.id.deleteDefectItemConfirmBtn);
         ImageView imageView = (ImageView) listView.findViewById(R.id.imageConfirm);
         final Defect defect = defectList.get(position);
-        if (position%2 == 0){
-            oneRowDefect.setBackgroundColor(Color.LTGRAY);
-        }
+        // change background color
+        oneRowDefect.setBackgroundColor(Color.LTGRAY);
+
         if (defect.getImageFileNameBefore() != null){
                // Toast.makeText(contex,"sai",Toast.LENGTH_SHORT).show();
             imageView.setImageBitmap(StringToBitMap(defect.getImageFileNameBefore()));

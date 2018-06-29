@@ -64,4 +64,6 @@
     <string name="setting">Setting</string>
     <string name="logOut">Log out</string>
     <string name="exit">Exit</string>
+    <string name="icon">Icon</string>
+    <string name="namePosition">Full Name and Position</string>
 </resources>
