@@ -3,6 +3,7 @@ package vn.com.ifca.defecttracking;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -19,12 +20,30 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 import vn.com.ifca.defecttracking.Activities.DefectManagementActivity;
 import vn.com.ifca.defecttracking.Activities.LogInActivity;
 import vn.com.ifca.defecttracking.Activities.SelectUnitActivity;
 import vn.com.ifca.defecttracking.Activities.UserManagementActivity;
+import vn.com.ifca.defecttracking.Model.DefectPlace;
 import vn.com.ifca.defecttracking.Model.LanguagePf;
 import vn.com.ifca.defecttracking.Model.SessionManager;
+import vn.com.ifca.defecttracking.Model.ipconfig;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +51,7 @@ public class MainActivity extends AppCompatActivity
     boolean doubleBackToExitPressedOnce = false;
     LanguagePf lang;
     Resources res;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,5 +207,58 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
     }
-  
+    /*-------------------------------GET DEFECT PLACE -------------------------------*/
+    private class GetStaticsNumber extends AsyncTask<String, Void, String> {
+        ipconfig ip= new ipconfig();
+        String ips= ip.getIpconfig();
+        String URL = ips;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                HttpClient client = new DefaultHttpClient();
+                HttpPost post = new HttpPost(URL);
+                List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
+                valuePairs.add(new BasicNameValuePair("get_contend",""));
+                valuePairs.add(new BasicNameValuePair("table", "DefectHeaderOpen"));
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
+                post.setEntity(entity);
+                HttpResponse response = client.execute(post);
+                InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line;
+                String result  ="";
+                while ((line = bufferedReader.readLine())!=null){
+                    result +=line;
+                }
+                return result;
+            }catch (Exception e){
+                return e.toString();
+            }
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (!s.equals("Empty"))
+            {
+                try {
+                    JSONArray mang = new JSONArray(s);
+                    for (int i= 0; i<mang.length();  i++){
+                        JSONObject cur = mang.getJSONObject(i);
+                        String total = cur.getString("Total");
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
