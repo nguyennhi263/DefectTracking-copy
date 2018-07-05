@@ -62,9 +62,9 @@ public class DefectItemAdapter  extends ArrayAdapter<Defect> {
         if (defectPlace.length()>30){
             defectPlace = defectPlace.substring(0,30)+"..";
         }
-        if (defect.getDefectStatus().equals("1")){
+        if (defect.getDefectStatus().equals("Open")){
             defectItemStatusBtn.setBackgroundColor(Color.RED);
-        }else if (defect.getDefectStatus().equals("2")){
+        }else if (defect.getDefectStatus().equals("Close")){
             defectItemStatusBtn.setBackgroundColor(Color.GREEN);
         }
 

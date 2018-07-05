@@ -138,10 +138,11 @@ public class DefectDetailActivity extends AppCompatActivity {
         Picasso.with(getApplicationContext()).load(urlImage+tImageAfter+".JPG")
                 .into(imageClose);
 
-        if (tStatus.equals("2")){
+        if (tStatus.equals("Close")){
             editDefectDetail.setText("Back");
             checkComplete.setChecked(true);
             checkComplete.setClickable(false);
+            CloseDefectBtn.setVisibility(View.INVISIBLE);
         }
         //imageViewDownload.setVisibility(View.GONE);
         if (tImageFileName.equals("picture")){
@@ -165,7 +166,7 @@ public class DefectDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String id = defect.get(defectItem.KEY_DEFECTID);
                 final int status = 2;
-                new CloseDefect().execute(id,status+"",imageText);
+                new CloseDefect().execute(id,"Close",imageText);
             }
         });
 
@@ -203,7 +204,7 @@ public class DefectDetailActivity extends AppCompatActivity {
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        new CloseDefect().execute(id,status+"",null);
+                        new CloseDefect().execute(id,"Close",null);
                     }
                 });
                 builder.create().show();

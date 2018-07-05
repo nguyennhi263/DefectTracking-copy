@@ -5,11 +5,17 @@ package vn.com.ifca.defecttracking.Model;
  */
 
 public class Contractor {
-    String ID, ContractorName;
+    String ID, ContractorName,DefectOpen,DefectClose,ResponeTime;
 
     public Contractor(String ID, String contractorName) {
         this.ID = ID;
         ContractorName = contractorName;
+    }
+
+    public Contractor(String contractorName, String defectOpen, String defectClose) {
+        ContractorName = contractorName;
+        DefectOpen = defectOpen;
+        DefectClose = defectClose;
     }
 
     public String getID() {
@@ -26,5 +32,29 @@ public class Contractor {
 
     public void setContractorName(String contractorName) {
         ContractorName = contractorName;
+    }
+
+    public String getDefectOpen() {
+        return DefectOpen;
+    }
+
+    public void setDefectOpen(String defectOpen) {
+        DefectOpen = defectOpen;
+    }
+
+    public String getDefectClose() {
+        return DefectClose;
+    }
+
+    public void setDefectClose(String defectClose) {
+        DefectClose = defectClose;
+    }
+
+    public String getResponeTime() {
+        return ResponeTime;
+    }
+
+    public void setResponeTime(String responeTime) {
+        ResponeTime = responeTime;
     }
 }

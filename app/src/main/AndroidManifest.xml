@@ -38,7 +38,9 @@
         <activity android:name=".Activities.LogInActivity" />
         <activity android:name=".Activities.DefectDetailActivity" />
         <activity android:name=".Activities.UserManagementActivity" />
-        <activity android:name=".Activities.DefectListActivity"></activity>
+        <activity android:name=".Activities.DefectListActivity" />
+        <activity android:name=".Activities.DefectByContractorActivity" />
+        <activity android:name=".Activities.ReportByProjectActivity"></activity>
     </application>
 
 </manifest>

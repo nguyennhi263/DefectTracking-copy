@@ -71,4 +71,5 @@
     <string name="defectCToday">Số lỗi đã đóng hôm nay</string>
     <string name="defectFound">Số lỗi mới hôm nay</string>
     <string name="complaintToday">Số căn hộ bị lỗi hôm nay</string>
+    <string name="defectPlace">Phòng</string>
 </resources>

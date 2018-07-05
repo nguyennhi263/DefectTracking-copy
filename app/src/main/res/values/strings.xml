@@ -76,4 +76,5 @@
     <string name="defectCToday">Defect(s) Closed Today</string>
     <string name="defectFound">Defect(s) Found Today</string>
     <string name="complaintToday">Complaint Unit Today</string>
+    <string name="defectPlace">Place</string>
 </resources>

@@ -55,7 +55,6 @@ public View getView(final int position, @Nullable View convertView, @NonNull Vie
         oneRowDefect.setBackgroundColor(Color.LTGRAY);
 
         if (defect.getImageFileNameBefore() != null){
-               // Toast.makeText(contex,"sai",Toast.LENGTH_SHORT).show();
             imageView.setImageBitmap(StringToBitMap(defect.getImageFileNameBefore()));
         }
         String tradeNametxt = defect.getTradeName();

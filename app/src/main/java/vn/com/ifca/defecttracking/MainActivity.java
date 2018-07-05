@@ -18,6 +18,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -36,6 +37,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.com.ifca.defecttracking.Activities.DefectByContractorActivity;
 import vn.com.ifca.defecttracking.Activities.DefectManagementActivity;
 import vn.com.ifca.defecttracking.Activities.LogInActivity;
 import vn.com.ifca.defecttracking.Activities.SelectUnitActivity;
@@ -66,23 +68,33 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //initial
         lang = new LanguagePf();
         res = this.getResources();
         lang.initialize(getApplicationContext(), this.getResources());
+        TextView by_contractor = (TextView) findViewById(R.id.by_contractor);
 
+        by_contractor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),DefectByContractorActivity.class));
+            }
+        });
+
+        // check log in
         sessionManager = new SessionManager(getApplicationContext());
-
         if (sessionManager.isLoggedIn()){
             // set tab layout
             toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
         }
         else {
             sessionManager.checkLogin();
         }
+
 
     }
     @Override
@@ -261,4 +273,5 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
+
 }

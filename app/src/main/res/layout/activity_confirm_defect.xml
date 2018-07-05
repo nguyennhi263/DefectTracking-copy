@@ -100,7 +100,7 @@
             android:layout_weight="4"
             android:background="@color/colorPrimaryDark"
             android:padding="10dp"
-            android:text="@string/status"
+            android:text="@string/defectPlace"
             android:textColor="@color/White"
             android:textStyle="bold" />
 
