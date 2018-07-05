@@ -40,6 +40,7 @@ import java.util.List;
 import vn.com.ifca.defecttracking.Activities.DefectByContractorActivity;
 import vn.com.ifca.defecttracking.Activities.DefectManagementActivity;
 import vn.com.ifca.defecttracking.Activities.LogInActivity;
+import vn.com.ifca.defecttracking.Activities.ReportByProjectActivity;
 import vn.com.ifca.defecttracking.Activities.SelectUnitActivity;
 import vn.com.ifca.defecttracking.Activities.UserManagementActivity;
 import vn.com.ifca.defecttracking.Model.DefectPlace;
@@ -74,14 +75,21 @@ public class MainActivity extends AppCompatActivity
         res = this.getResources();
         lang.initialize(getApplicationContext(), this.getResources());
         TextView by_contractor = (TextView) findViewById(R.id.by_contractor);
+        TextView by_project = (TextView) findViewById(R.id.by_project) ;
 
+        // event
         by_contractor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),DefectByContractorActivity.class));
             }
         });
-
+        by_project.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ReportByProjectActivity.class));
+            }
+        });
         // check log in
         sessionManager = new SessionManager(getApplicationContext());
         if (sessionManager.isLoggedIn()){
