@@ -39,7 +39,7 @@ public class ContractorAdapter extends ArrayAdapter<Contractor> {
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = contex.getLayoutInflater();
         View listView = inflater.inflate(R.layout.one_row_contractor,null,true);
-        LinearLayout one_row_contractor = (LinearLayout) listView.findViewById(R.id.one_row_contractor);
+
         TextView contractorName = (TextView) listView.findViewById(R.id.contractorName);
         TextView defectOpen = (TextView) listView.findViewById(R.id.defectOpen);
         TextView defectClose = (TextView) listView.findViewById(R.id.defectClose);

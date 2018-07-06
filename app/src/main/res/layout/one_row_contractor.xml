@@ -1,136 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/one_row_contractor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
+    android:weightSum="10"
     android:background="@color/Black"
     >
 
-    <LinearLayout
-        android:id="@+id/linearLayout46"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="100">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/app_bar_main"
+        android:background="@color/Black">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:background="@color/Black"
-            android:orientation="horizontal"
-            android:weightSum="10">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Contractor's name :"
-                android:textColor="@color/Orange" />
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:background="@color/White">
 
-            <TextView
-                android:id="@+id/contractorName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Nam khang"
-                android:textColor="@color/Orange" />
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="4">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/white" />
+                    <TextView
+                        android:id="@+id/contractorName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:background="@color/Black"
+                        android:padding="15dp"
+                        android:text="Contractor's name"
+                        android:textColor="@color/White"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:background="@color/Black"
-            android:orientation="horizontal"
-            android:weightSum="10">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0.5dp"
+                        android:background="@color/Black"
+                        android:orientation="horizontal"
+                        android:weightSum="12">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Defects Opening:"
-                android:textColor="@color/Orange" />
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="Defects Opening"
+                            android:textColor="@color/Orange"
+                            android:textSize="16sp"
+                            android:paddingRight="5dp"/>
 
-            <TextView
-                android:id="@+id/defectOpen"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="20"
-                android:textColor="@color/Orange" />
-        </LinearLayout>
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=":"
+                            android:textColor="@color/Orange"
+                            android:textStyle="bold" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:background="@android:color/white" />
+                        <TextView
+                            android:padding="10dp"
+                            android:id="@+id/defectOpen"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@color/Orange"
+                            android:textSize="18sp" />
+                    </LinearLayout>
 
-        <LinearLayout
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0.5dp"
+                        android:background="@color/Black"
+                        android:orientation="horizontal"
+                        android:weightSum="12">
 
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:background="@color/Black"
-            android:orientation="horizontal"
-            android:weightSum="10">
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="Defects Close"
+                            android:textColor="@color/Orange"
+                            android:textSize="16sp"
+                            android:paddingRight="5dp"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Defects Close:"
-                android:textColor="@color/Orange" />
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=":"
+                            android:textColor="@color/Orange"
+                            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/defectClose"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="2"
-                android:textColor="@color/Orange" />
-        </LinearLayout>
+                        <TextView
+                            android:padding="10dp"
+                            android:id="@+id/defectClose"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:text="100"
+                            android:textAlignment="center"
+                            android:textColor="@color/Orange"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:background="@android:color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:background="@color/Black"
-            android:orientation="horizontal"
-            android:weightSum="10">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Respone time:"
-                android:textColor="@color/Orange" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="2"
-                android:textColor="@color/Orange" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>

@@ -5,65 +5,167 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
+    android:background="@color/Black"
     >
-    <LinearLayout
-        android:layout_weight="2"
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:weightSum="10">
-        <TextView
-            android:textColor="@color/Orange"
-            android:layout_weight="5"
-            android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/app_bar_main"
+        android:background="@color/Black">
+
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Project's name :"/>
-        <TextView
-            android:id="@+id/projectName"
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:textColor="@color/Orange"
-            android:text="Nam khang"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_weight="2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:weightSum="10">
-        <TextView
-            android:textColor="@color/Orange"
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Defects Opening:"/>
-        <TextView
-            android:textColor="@color/Orange"
-            android:id="@+id/defectOpen"
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="20"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_weight="2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:weightSum="10">
-        <TextView
-            android:textColor="@color/Orange"
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Defects Close:"/>
-        <TextView
-            android:textColor="@color/Orange"
-            android:id="@+id/defectClose"
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="2"/>
-    </LinearLayout>
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:background="@color/White">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:id="@+id/projectName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:background="@color/Black"
+                        android:padding="15dp"
+                        android:text="Project's name"
+                        android:textColor="@color/White"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0.5dp"
+                        android:background="@color/Black"
+                        android:orientation="horizontal"
+                        android:weightSum="12">
+
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="Defects Opening"
+                            android:textColor="@color/Orange"
+                            android:textSize="16sp"
+                            android:paddingRight="5dp"/>
+
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=":"
+                            android:textColor="@color/Orange"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:padding="10dp"
+                            android:id="@+id/defectOpen"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@color/Orange"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0.5dp"
+                        android:background="@color/Black"
+                        android:orientation="horizontal"
+                        android:weightSum="12">
+
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="Defects Close"
+                            android:textColor="@color/Orange"
+                            android:textSize="16sp"
+                            android:paddingRight="5dp"/>
+
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=":"
+                            android:textColor="@color/Orange"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:padding="10dp"
+                            android:id="@+id/defectClose"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:text="100"
+                            android:textAlignment="center"
+                            android:textColor="@color/Orange"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0.5dp"
+                        android:background="@color/Black"
+                        android:orientation="horizontal"
+                        android:weightSum="12">
+
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7"
+                            android:text="@string/complaintToday"
+                            android:textColor="@color/Orange"
+                            android:textSize="16sp"
+                            android:paddingRight="5dp"/>
+
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=":"
+                            android:textColor="@color/Orange"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:padding="10dp"
+                            android:id="@+id/today_complaint_unit"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:text="100"
+                            android:textAlignment="center"
+                            android:textColor="@color/Orange"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.constraint.ConstraintLayout>
 </LinearLayout>
+

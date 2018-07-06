@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     boolean doubleBackToExitPressedOnce = false;
     LanguagePf lang;
     Resources res;
+    TextView tot_defect_remain,tot_defect_closed,today_defect_found,today_defect_closed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +79,10 @@ public class MainActivity extends AppCompatActivity
         TextView by_contractor = (TextView) findViewById(R.id.by_contractor);
         TextView by_project = (TextView) findViewById(R.id.by_project) ;
         TextView reportTop10 = (TextView) findViewById(R.id.reportTop10);
+        tot_defect_remain = (TextView) findViewById(R.id.tot_defect_remain);
+        tot_defect_closed = (TextView) findViewById(R.id.tot_defect_closed);
+        today_defect_found = (TextView) findViewById(R.id.today_defect_found);
+        today_defect_closed = (TextView) findViewById(R.id.today_defect_closed);
         // event
         by_contractor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +111,10 @@ public class MainActivity extends AppCompatActivity
             setSupportActionBar(toolbar);
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            new GetReportDefectOpen().execute();
+            new GetReportDefectClose().execute();
+            new GetReportDefectTodayOpen().execute();
+            new GetReportDefectTodayClose().execute();
         }
         else {
             sessionManager.checkLogin();
@@ -228,15 +237,8 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    private class MyBroswer extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            return true;
-        }
-    }
-    /*-------------------------------GET DEFECT PLACE -------------------------------*/
-    private class GetStaticsNumber extends AsyncTask<String, Void, String> {
+    /*-------------------------------GET DEFECT OPEN -------------------------------*/
+    private class GetReportDefectOpen extends AsyncTask<String, Void, String> {
         ipconfig ip= new ipconfig();
         String ips= ip.getIpconfig();
         String URL = ips;
@@ -251,7 +253,7 @@ public class MainActivity extends AppCompatActivity
                 HttpPost post = new HttpPost(URL);
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("get_contend",""));
-                valuePairs.add(new BasicNameValuePair("table", "DefectHeaderOpen"));
+                valuePairs.add(new BasicNameValuePair("table", "ReportDefectOpen"));
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
                 HttpResponse response = client.execute(post);
@@ -276,13 +278,70 @@ public class MainActivity extends AppCompatActivity
                     JSONArray mang = new JSONArray(s);
                     for (int i= 0; i<mang.length();  i++){
                         JSONObject cur = mang.getJSONObject(i);
-                        String total = cur.getString("Total");
+                        String total = cur.getString("Defect_Open");
+                        tot_defect_remain.setText(total);
                     }
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+    /*-------------------------------GET DEFECT CLOSE -------------------------------*/
+    private class GetReportDefectClose extends AsyncTask<String, Void, String> {
+        ipconfig ip= new ipconfig();
+        String ips= ip.getIpconfig();
+        String URL = ips;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                HttpClient client = new DefaultHttpClient();
+                HttpPost post = new HttpPost(URL);
+                List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
+                valuePairs.add(new BasicNameValuePair("get_contend",""));
+                valuePairs.add(new BasicNameValuePair("table", "ReportDefectClose"));
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
+                post.setEntity(entity);
+                HttpResponse response = client.execute(post);
+                InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line;
+                String result  ="";
+                while ((line = bufferedReader.readLine())!=null){
+                    result +=line;
+                }
+                return result;
+            }catch (Exception e){
+                return e.toString();
+            }
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (!s.equals("Empty"))
+            {
+                try {
+                    JSONArray mang = new JSONArray(s);
+                    for (int i= 0; i<mang.length();  i++){
+                        JSONObject cur = mang.getJSONObject(i);
+                        String total = cur.getString("Defect_Close");
+                        tot_defect_closed.setText(total);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
             else {
                 Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
@@ -290,4 +349,114 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /*-------------------------------GET DEFECT TODAY OPEN -------------------------------*/
+    private class GetReportDefectTodayOpen extends AsyncTask<String, Void, String> {
+        ipconfig ip= new ipconfig();
+        String ips= ip.getIpconfig();
+        String URL = ips;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                HttpClient client = new DefaultHttpClient();
+                HttpPost post = new HttpPost(URL);
+                List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
+                valuePairs.add(new BasicNameValuePair("get_contend",""));
+                valuePairs.add(new BasicNameValuePair("table", "ReportTodayOpen"));
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
+                post.setEntity(entity);
+                HttpResponse response = client.execute(post);
+                InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line;
+                String result  ="";
+                while ((line = bufferedReader.readLine())!=null){
+                    result +=line;
+                }
+                return result;
+            }catch (Exception e){
+                return e.toString();
+            }
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (!s.equals("Empty"))
+            {
+                try {
+                    JSONArray mang = new JSONArray(s);
+                    for (int i= 0; i<mang.length();  i++){
+                        JSONObject cur = mang.getJSONObject(i);
+                        String total = cur.getString("Today_Open");
+                        today_defect_found.setText(total);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    /*-------------------------------GET DEFECT TODAY OPEN -------------------------------*/
+    private class GetReportDefectTodayClose extends AsyncTask<String, Void, String> {
+        ipconfig ip= new ipconfig();
+        String ips= ip.getIpconfig();
+        String URL = ips;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                HttpClient client = new DefaultHttpClient();
+                HttpPost post = new HttpPost(URL);
+                List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
+                valuePairs.add(new BasicNameValuePair("get_contend",""));
+                valuePairs.add(new BasicNameValuePair("table", "ReportTodayClose"));
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
+                post.setEntity(entity);
+                HttpResponse response = client.execute(post);
+                InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line;
+                String result  ="";
+                while ((line = bufferedReader.readLine())!=null){
+                    result +=line;
+                }
+                return result;
+            }catch (Exception e){
+                return e.toString();
+            }
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (!s.equals("Empty"))
+            {
+                try {
+                    JSONArray mang = new JSONArray(s);
+                    for (int i= 0; i<mang.length();  i++){
+                        JSONObject cur = mang.getJSONObject(i);
+                        String total = cur.getString("Today_Close");
+                        today_defect_closed.setText(total);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
