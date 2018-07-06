@@ -1,6 +1,7 @@
 package vn.com.ifca.defecttracking.Activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.com.ifca.defecttracking.Adapter.ContractorAdapter;
+import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.Contractor;
 import vn.com.ifca.defecttracking.Model.Project;
 import vn.com.ifca.defecttracking.Model.ipconfig;
@@ -47,6 +49,15 @@ public class ReportByProjectActivity extends AppCompatActivity {
         lvReportByProject = findViewById(R.id.lvReportByProject);
         listProject = new ArrayList<>();
         new GetListReportProject().execute();
+    }
+    public void go_to_back_screen(View v){
+        finish();
+        super.onBackPressed();
+
+    }
+    public void go_to_homescreen(View v){
+        finish();
+        startActivity(new Intent(ReportByProjectActivity.this,MainActivity.class));
     }
     /*----------------------------------GET LIST REPORT-----------------------------------*/
     private class GetListReportProject extends AsyncTask<String, Void, String> {
