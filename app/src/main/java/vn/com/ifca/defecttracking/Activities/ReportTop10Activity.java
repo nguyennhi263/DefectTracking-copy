@@ -113,7 +113,6 @@ public class ReportTop10Activity extends AppCompatActivity {
         private Activity contex;
         private List<Defect> projectList;
 
-
         public Top10Adapter(Activity contex, List<Defect> defecttList){
             super (contex , R.layout.one_row_report_by_project,defecttList);
             this.contex=contex;
@@ -130,6 +129,8 @@ public class ReportTop10Activity extends AppCompatActivity {
             Defect defect = projectList.get(position);
             defectName.setText(defect.getTradeName());
             defectNo.setText(defect.getDefectNo());
+            defectName.setTextColor(0xFFFA9A2A);
+            defectNo.setTextColor(0xFFFA9A2A);
             return listView;
         }
     }
