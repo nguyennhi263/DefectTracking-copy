@@ -5,23 +5,24 @@
     android:id="@+id/one_row_contractor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="100"
     android:orientation="vertical"
-    android:weightSum="10"
     android:background="@color/Black"
     >
 
     <LinearLayout
         android:id="@+id/linearLayout46"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="70"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="5"
             android:background="@color/Black"
-            android:orientation="horizontal"
-            android:weightSum="10">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
@@ -38,6 +39,12 @@
                 android:text="Nam khang"
                 android:textColor="@color/Orange" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/white" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -61,20 +68,17 @@
                 android:text="20"
                 android:textColor="@color/Orange" />
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@android:color/white"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@android:color/white"/>
+            android:background="@android:color/white" />
+
         <LinearLayout
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="5"
             android:background="@color/Black"
             android:orientation="horizontal"
             android:weightSum="10">
@@ -94,14 +98,16 @@
                 android:text="2"
                 android:textColor="@color/Orange" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@android:color/white"/>
+            android:background="@android:color/white" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="5"
             android:background="@color/Black"
             android:orientation="horizontal"
             android:weightSum="10">
@@ -123,4 +129,17 @@
         </LinearLayout>
 
     </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout46"
+        android:background="@color/Black" />
 </android.support.constraint.ConstraintLayout>
