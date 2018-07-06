@@ -40,7 +40,8 @@
         <activity android:name=".Activities.UserManagementActivity" />
         <activity android:name=".Activities.DefectListActivity" />
         <activity android:name=".Activities.DefectByContractorActivity" />
-        <activity android:name=".Activities.ReportByProjectActivity"></activity>
+        <activity android:name=".Activities.ReportByProjectActivity" />
+        <activity android:name=".Activities.ReportTop10Activity"></activity>
     </application>
 
 </manifest>

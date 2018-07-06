@@ -41,6 +41,7 @@ import vn.com.ifca.defecttracking.Activities.DefectByContractorActivity;
 import vn.com.ifca.defecttracking.Activities.DefectManagementActivity;
 import vn.com.ifca.defecttracking.Activities.LogInActivity;
 import vn.com.ifca.defecttracking.Activities.ReportByProjectActivity;
+import vn.com.ifca.defecttracking.Activities.ReportTop10Activity;
 import vn.com.ifca.defecttracking.Activities.SelectUnitActivity;
 import vn.com.ifca.defecttracking.Activities.UserManagementActivity;
 import vn.com.ifca.defecttracking.Model.DefectPlace;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity
         lang.initialize(getApplicationContext(), this.getResources());
         TextView by_contractor = (TextView) findViewById(R.id.by_contractor);
         TextView by_project = (TextView) findViewById(R.id.by_project) ;
-
+        TextView reportTop10 = (TextView) findViewById(R.id.reportTop10);
         // event
         by_contractor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +91,13 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(getApplicationContext(), ReportByProjectActivity.class));
             }
         });
+        reportTop10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ReportTop10Activity.class));
+            }
+        });
+
         // check log in
         sessionManager = new SessionManager(getApplicationContext());
         if (sessionManager.isLoggedIn()){

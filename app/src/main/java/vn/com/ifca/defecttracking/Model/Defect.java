@@ -10,7 +10,21 @@ public class Defect {
             TradeName,TradeID,
             DescriptionDetail,DescriptionID,
             DefectStatus,CloseDate,
-            ImageFileNameBefore,ImageFileNameAfter, Note, ContractorName;
+            ImageFileNameBefore,ImageFileNameAfter, Note, ContractorName,
+            DefectNo;
+
+    public Defect(String tradeName, String defectNo) {
+        TradeName = tradeName;
+        DefectNo = defectNo;
+    }
+
+    public String getDefectNo() {
+        return DefectNo;
+    }
+
+    public void setDefectNo(String defectNo) {
+        DefectNo = defectNo;
+    }
 
     public Defect() {
     }
