@@ -15,7 +15,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/Black"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="Contractor's name :"
+                android:textColor="@color/Orange" />
+
+            <TextView
+                android:id="@+id/contractorName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:text="Nam khang"
+                android:textColor="@color/Orange" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -43,29 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@android:color/white"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:background="@color/Black"
-            android:orientation="horizontal"
-            android:weightSum="10">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Contractor's name :"
-                android:textColor="@color/Orange" />
-
-            <TextView
-                android:id="@+id/contractorName"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:text="Nam khang"
-                android:textColor="@color/Orange" />
-        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
