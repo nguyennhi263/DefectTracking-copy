@@ -10,49 +10,88 @@
     tools:showIn="@layout/app_bar_main"
     android:background="@color/Black">
 
-    <TextView
-        android:id="@+id/by_contractor"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Black"
-        android:padding="15dp"
-        android:shadowColor="@color/Orange"
-        android:text="Defect by contractor"
-        android:textColor="@color/White"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    <TextView
-        android:id="@+id/by_project"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/by_contractor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/Black"
+            android:padding="15dp"
+            android:shadowColor="@color/Orange"
+            android:text="Defect by contractor"
+            android:textColor="@color/White"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@android:color/white"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:background="@color/Black"
-        android:padding="15dp"
-        android:text="Defect by project"
-        android:textColor="@color/White"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        />
-    <TextView
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/by_project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:background="@color/Black"
+            android:padding="15dp"
+            android:text="Defect by project"
+            android:textColor="@color/White"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@android:color/white"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:background="@color/Black"
-        android:padding="15dp"
-        android:text="Top 10 Defects"
-        android:textColor="@color/White"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-    <TextView
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:background="@color/Black"
+            android:padding="15dp"
+            android:text="Top 10 Defects"
+            android:textColor="@color/White"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@android:color/white"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:background="@color/Black"
-        android:padding="15dp"
-        android:text="Ageging reports"
-        android:textColor="@color/White"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:background="@color/Black"
+            android:padding="15dp"
+            android:text="Ageging reports"
+            android:textColor="@color/White"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </LinearLayout>
