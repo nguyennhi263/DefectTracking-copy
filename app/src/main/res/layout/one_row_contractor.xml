@@ -5,7 +5,7 @@
     android:id="@+id/one_row_contractor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="100"
+
     android:orientation="vertical"
     android:background="@color/Black"
     >
@@ -14,15 +14,16 @@
         android:id="@+id/linearLayout46"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=""
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="100">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_height="0dp"
+            android:layout_weight="10"
             android:background="@color/Black"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <TextView
                 android:layout_width="0dp"
@@ -33,8 +34,8 @@
 
             <TextView
                 android:id="@+id/contractorName"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:text="Nam khang"
                 android:textColor="@color/Orange" />
@@ -42,13 +43,14 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@android:color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_height="0dp"
+            android:layout_weight="10"
             android:background="@color/Black"
             android:orientation="horizontal"
             android:weightSum="10">
@@ -63,7 +65,7 @@
             <TextView
                 android:id="@+id/defectOpen"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:text="20"
                 android:textColor="@color/Orange" />
@@ -72,13 +74,14 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_weight="1"
             android:background="@android:color/white" />
 
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_height="0dp"
+            android:layout_weight="10"
             android:background="@color/Black"
             android:orientation="horizontal"
             android:weightSum="10">
@@ -93,7 +96,7 @@
             <TextView
                 android:id="@+id/defectClose"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:text="2"
                 android:textColor="@color/Orange" />
@@ -102,12 +105,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_weight="1"
             android:background="@android:color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_height="0dp"
+            android:layout_weight="10"
             android:background="@color/Black"
             android:orientation="horizontal"
             android:weightSum="10">
@@ -121,7 +125,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:text="2"
                 android:textColor="@color/Orange" />
