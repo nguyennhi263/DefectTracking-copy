@@ -14,7 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/people_icon_orange" />
         <TextView
             android:id="@+id/by_contractor"
             android:layout_width="match_parent"
@@ -37,6 +41,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/description_icon" />
 
         <TextView
             android:id="@+id/by_project"
@@ -60,9 +69,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/location_icon" />
+
         <TextView
             android:id="@+id/reportTop10"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:layout_weight="1"
@@ -81,7 +96,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/refresh_icon_orange" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
