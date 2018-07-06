@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:weightSum="12"
     android:orientation="vertical"
+    android:background="@color/Black"
     tools:context="vn.com.ifca.defecttracking.Activities.DefectByContractorActivity">
     <ListView
         android:id="@+id/lvReportByContractor"
