@@ -129,6 +129,7 @@ public class ReportTop10Activity extends AppCompatActivity {
             Defect defect = projectList.get(position);
             defectName.setText(defect.getTradeName());
             defectNo.setText(defect.getDefectNo());
+            //set text color to orange
             defectName.setTextColor(0xFFFA9A2A);
             defectNo.setTextColor(0xFFFA9A2A);
             return listView;
