@@ -144,6 +144,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        new GetReportDefectOpen().execute();
+        new GetReportDefectClose().execute();
+        new GetReportDefectTodayOpen().execute();
+        new GetReportDefectTodayClose().execute();
+        new GetReportUnitOpen().execute();
+        new GetReportUnitTodayOpen().execute();
+        new GetTotalDefect().execute();
     }
     @Override
     public void onBackPressed() {
@@ -406,9 +413,7 @@ public class MainActivity extends AppCompatActivity
                 }
 
             }
-            else {
-                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
-            }
+
         }
     }
     /*-------------------------------GET DEFECT TODAY CLOSE -------------------------------*/
@@ -460,9 +465,6 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
 
-            }
-            else {
-                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -517,7 +519,7 @@ public class MainActivity extends AppCompatActivity
 
             }
             else {
-                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Somethings wrong (UnitOpen)",Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -570,9 +572,6 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
 
-            }
-            else {
-                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
             }
         }
     }
