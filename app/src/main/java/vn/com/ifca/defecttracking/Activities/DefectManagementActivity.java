@@ -1,6 +1,7 @@
 package vn.com.ifca.defecttracking.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,7 @@ import vn.com.ifca.defecttracking.Adapter.BlockSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.DefectHeaderAdapter;
 import vn.com.ifca.defecttracking.Adapter.PhaseSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.ProjectSpinAdapter;
+import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.Block;
 import vn.com.ifca.defecttracking.Model.DefectHeader;
 import vn.com.ifca.defecttracking.Model.Phase;
@@ -491,5 +493,14 @@ public class DefectManagementActivity extends AppCompatActivity {
             spBlock.setAdapter(customAdapter);
 
         }
+    }
+    public void go_to_back_screen(View v){
+        finish();
+        super.onBackPressed();
+
+    }
+    public void go_to_homescreen(View v){
+        finish();
+        startActivity(new Intent(this,MainActivity.class));
     }
 }

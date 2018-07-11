@@ -1,9 +1,11 @@
 package vn.com.ifca.defecttracking.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.com.ifca.defecttracking.Adapter.ContractorAdapter;
+import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.Contractor;
 import vn.com.ifca.defecttracking.Model.User;
 import vn.com.ifca.defecttracking.Model.ipconfig;
@@ -37,9 +40,23 @@ public class DefectByContractorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_defect_by_contractor);
+        // back button on tool bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // get data
         lvReportByContractor = findViewById(R.id.lvReportByContractor);
         listContractor = new ArrayList<>();
         new GetListContractor().execute();
+    }
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     /*----------------------------------GET LIST REPORT-----------------------------------*/
     private class GetListContractor extends AsyncTask<String, Void, String> {
@@ -103,5 +120,14 @@ public class DefectByContractorActivity extends AppCompatActivity {
             ContractorAdapter userAdaper = new ContractorAdapter(DefectByContractorActivity.this,listContractor);
             lvReportByContractor.setAdapter(userAdaper);
         }
+    }
+    public void go_to_back_screen(View v){
+        finish();
+        super.onBackPressed();
+
+    }
+    public void go_to_homescreen(View v){
+        finish();
+        startActivity(new Intent(this,MainActivity.class));
     }
 }

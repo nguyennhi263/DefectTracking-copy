@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import vn.com.ifca.defecttracking.Adapter.DefectItemAdapter;
+import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.Defect;
 import vn.com.ifca.defecttracking.Model.SessionManager;
 import vn.com.ifca.defecttracking.Model.ipconfig;
@@ -202,6 +203,15 @@ public class DefectListActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         new GetListDefectItem().execute(defectHeaderID);
+    }
+    public void go_to_back_screen(View v){
+        finish();
+        super.onBackPressed();
+
+    }
+    public void go_to_homescreen(View v){
+        finish();
+        startActivity(new Intent(this,MainActivity.class));
     }
 }
 

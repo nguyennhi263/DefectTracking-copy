@@ -73,6 +73,7 @@
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/Orange"
+            android:onClick="go_to_homescreen"
             android:text="@string/homeBtn" />
 
         <Button

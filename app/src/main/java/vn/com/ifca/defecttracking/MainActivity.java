@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity
     boolean doubleBackToExitPressedOnce = false;
     LanguagePf lang;
     Resources res;
-    TextView tot_defect_remain,tot_defect_closed,today_defect_found,today_defect_closed;
+    TextView tot_defect_remain,tot_defect_closed,today_defect_found,
+            today_defect_closed,tot_complaint_unit_remain,today_complaint_unit,tot_defect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +84,9 @@ public class MainActivity extends AppCompatActivity
         tot_defect_closed = (TextView) findViewById(R.id.tot_defect_closed);
         today_defect_found = (TextView) findViewById(R.id.today_defect_found);
         today_defect_closed = (TextView) findViewById(R.id.today_defect_closed);
+        tot_complaint_unit_remain = (TextView) findViewById(R.id.tot_complaint_unit_remain);
+        today_complaint_unit = (TextView) findViewById(R.id.today_complaint_unit);
+        tot_defect = (TextView) findViewById(R.id.tot_defect);
         // event
         by_contractor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +119,9 @@ public class MainActivity extends AppCompatActivity
             new GetReportDefectClose().execute();
             new GetReportDefectTodayOpen().execute();
             new GetReportDefectTodayClose().execute();
+            new GetReportUnitOpen().execute();
+            new GetReportUnitTodayOpen().execute();
+            new GetTotalDefect().execute();
         }
         else {
             sessionManager.checkLogin();
@@ -404,7 +411,7 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
-    /*-------------------------------GET DEFECT TODAY OPEN -------------------------------*/
+    /*-------------------------------GET DEFECT TODAY CLOSE -------------------------------*/
     private class GetReportDefectTodayClose extends AsyncTask<String, Void, String> {
         ipconfig ip= new ipconfig();
         String ips= ip.getIpconfig();
@@ -456,6 +463,171 @@ public class MainActivity extends AppCompatActivity
             }
             else {
                 Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    /*-------------------------------GET DEFECT TODAY CLOSE -------------------------------*/
+    private class GetReportUnitOpen extends AsyncTask<String, Void, String> {
+        ipconfig ip= new ipconfig();
+        String ips= ip.getIpconfig();
+        String URL = ips;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                HttpClient client = new DefaultHttpClient();
+                HttpPost post = new HttpPost(URL);
+                List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
+                valuePairs.add(new BasicNameValuePair("get_contend",""));
+                valuePairs.add(new BasicNameValuePair("table", "ReportUnitOpen"));
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
+                post.setEntity(entity);
+                HttpResponse response = client.execute(post);
+                InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line;
+                String result  ="";
+                while ((line = bufferedReader.readLine())!=null){
+                    result +=line;
+                }
+                return result;
+            }catch (Exception e){
+                return e.toString();
+            }
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (!s.equals("Empty"))
+            {
+                try {
+                    JSONArray mang = new JSONArray(s);
+                    for (int i= 0; i<mang.length();  i++){
+                        JSONObject cur = mang.getJSONObject(i);
+                        String total = cur.getString("Unit_Open");
+                        tot_complaint_unit_remain.setText(total);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    /*-------------------------------GET UNIT TODAY CLOSE -------------------------------*/
+    private class GetReportUnitTodayOpen extends AsyncTask<String, Void, String> {
+        ipconfig ip= new ipconfig();
+        String ips= ip.getIpconfig();
+        String URL = ips;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                HttpClient client = new DefaultHttpClient();
+                HttpPost post = new HttpPost(URL);
+                List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
+                valuePairs.add(new BasicNameValuePair("get_contend",""));
+                valuePairs.add(new BasicNameValuePair("table", "ReportUnitTodayOpen"));
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
+                post.setEntity(entity);
+                HttpResponse response = client.execute(post);
+                InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line;
+                String result  ="";
+                while ((line = bufferedReader.readLine())!=null){
+                    result +=line;
+                }
+                return result;
+            }catch (Exception e){
+                return e.toString();
+            }
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (!s.equals("Empty"))
+            {
+                try {
+                    JSONArray mang = new JSONArray(s);
+                    for (int i= 0; i<mang.length();  i++){
+                        JSONObject cur = mang.getJSONObject(i);
+                        String total = cur.getString("Unit_Open");
+                        today_complaint_unit.setText(total);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Somethings wrong",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    /*-------------------------------GET TOTAL DEFECT-------------------------------*/
+    private class GetTotalDefect extends AsyncTask<String, Void, String> {
+        ipconfig ip= new ipconfig();
+        String ips= ip.getIpconfig();
+        String URL = ips;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                HttpClient client = new DefaultHttpClient();
+                HttpPost post = new HttpPost(URL);
+                List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
+                valuePairs.add(new BasicNameValuePair("get_contend",""));
+                valuePairs.add(new BasicNameValuePair("table", "ReportTotalDefect"));
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
+                post.setEntity(entity);
+                HttpResponse response = client.execute(post);
+                InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line;
+                String result  ="";
+                while ((line = bufferedReader.readLine())!=null){
+                    result +=line;
+                }
+                return result;
+            }catch (Exception e){
+                return e.toString();
+            }
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (!s.equals("Empty"))
+            {
+                try {
+                    JSONArray mang = new JSONArray(s);
+                    for (int i= 0; i<mang.length();  i++){
+                        JSONObject cur = mang.getJSONObject(i);
+                        String total = cur.getString("Total_Defect");
+                        tot_defect.setText(total);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Somethings wrong Total_Defect",Toast.LENGTH_SHORT).show();
             }
         }
     }

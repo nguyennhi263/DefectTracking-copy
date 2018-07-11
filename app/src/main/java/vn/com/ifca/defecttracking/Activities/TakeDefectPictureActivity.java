@@ -38,10 +38,8 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
     ImageView imageView;
     DrawCanvasImage imageViewT;
     String imageText;
-    Uri imageUri;
     Uri selectedImage;
     Canvas canvas = null;
-    DefectItem defectItem;
     int defectItemID;
     private static final int CAMERA_REQUEST = 0;
     @Override

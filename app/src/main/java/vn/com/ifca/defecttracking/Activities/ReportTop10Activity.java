@@ -44,9 +44,23 @@ public class ReportTop10Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_top10);
+        // back button on tool bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // get data
         lvReportByProject = findViewById(R.id.lvReportTop10);
         listDefect = new ArrayList<>();
         new GetListTop10().execute();
+    }
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     public void go_to_back_screen(View v){
         finish();

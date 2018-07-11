@@ -61,16 +61,16 @@
     </LinearLayout>
 
     <ListView
-        android:layout_marginTop="1dp"
         android:id="@+id/lvDefectItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         app:layout_constraintBottom_toTopOf="@+id/confirm_defect_footer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_title"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.011" />
 
     <LinearLayout
         android:id="@+id/confirm_defect_footer"
@@ -85,6 +85,7 @@
 
         <Button
             android:id="@+id/b"
+            android:onClick="go_to_back_screen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="1dp"
@@ -93,6 +94,7 @@
             android:text="@string/backBtn" />
 
         <Button
+            android:onClick="go_to_homescreen"
             android:id="@+id/a"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -2,6 +2,7 @@ package vn.com.ifca.defecttracking.Activities;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,6 +35,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.User;
 import vn.com.ifca.defecttracking.Model.ipconfig;
 import vn.com.ifca.defecttracking.R;
@@ -97,6 +99,10 @@ public class UserManagementActivity extends AppCompatActivity {
     public void go_to_back_screen(View v){
         super.onBackPressed();
         this.finish();
+    }
+    public void go_to_homescreen(View v){
+        finish();
+        startActivity(new Intent(this,MainActivity.class));
     }
     /*----------------------------------GET LIST USER-----------------------------------*/
     private class GetListUser extends AsyncTask<String, Void, String> {
