@@ -92,21 +92,15 @@ public class LogInActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                //Khởi tạo đối tượng client
                 HttpClient client = new DefaultHttpClient();
-                //Đối tượng chứa nội dung cần gửi
                 HttpPost post = new HttpPost(URL);
-                //Gán tham số vào giá trị gửi
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("username", params[0]));
                 valuePairs.add(new BasicNameValuePair("pass", params[1]));
                 valuePairs.add(new BasicNameValuePair("check_login", "true"));
 
-
-                //Gán nội dung lên form
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
-                //Đón nhận kết quả
                 HttpResponse response = client.execute(post);
                 InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -124,9 +118,7 @@ public class LogInActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-
             super.onPostExecute(s);
-            //Kết quả trả về
             if (!s.equals("false"))
             {
                 try {
@@ -144,12 +136,10 @@ public class LogInActivity extends AppCompatActivity {
                         String Pass = txtpass.getText().toString().trim();
                         session.createLoginSession(UserID,Username,Pass,fullname,Level,email,mobile);
                         Toast.makeText(LogInActivity.this,"Log in success",Toast.LENGTH_SHORT).show();
-
                         // Staring MainActivity
                         finish();
                         Intent it = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(it);
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
