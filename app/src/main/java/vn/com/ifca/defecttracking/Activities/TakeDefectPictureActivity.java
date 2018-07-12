@@ -64,15 +64,12 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         cameraBtn = (Button) findViewById(R.id.Camerabtn);
         imageView = (ImageView) findViewById(R.id.imageView);
         imageViewT = (DrawCanvasImage) findViewById(R.id.imageViewT);
-
-
         /*------------OPEN CAMERA-------------*/
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)
                         == PackageManager.PERMISSION_GRANTED) {
-
                     imageViewT.clear();
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent, CAMERA_REQUEST);
@@ -83,14 +80,12 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                 }
                 }
         });
-
     }
     @Override
     protected void onStart() {
         super.onStart();
         imageViewT.clear();
     }
-
     /*-----------------------------------INTENT ACTIVITY----------------------------*/
     @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
@@ -114,7 +109,6 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
         Bitmap bmap = imageViewT.getDrawingCache();
         imageViewT.setImageBitmap(bmap);
         imageText = getStringImage(bmap);
-       // defectItem.addImage(imageText);
         final DefectDBManager defectDBManager = new DefectDBManager(getApplicationContext());
         defectDBManager.open();
         defectDBManager.update(defectItemID,imageText);
@@ -144,67 +138,5 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                 imageViewT.setImageBitmap(bitmap);
             }
         }
-    }
-    public static Bitmap RotateBitmap(Bitmap source, float angle)
-    {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(angle);
-        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
-    }
-    public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight)
-    { // BEST QUALITY MATCH
-
-        //First decode with inJustDecodeBounds=true to check dimensions
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(path, options);
-
-        //options.outHeight=options.outWidth;
-        // Calculate inSampleSize, Raw height and width of image
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        int inSampleSize = 1;
-
-        if (height > reqHeight)
-        {
-            inSampleSize = Math.round((float)height / (float)reqHeight);
-        }
-        int expectedWidth = width / inSampleSize;
-
-        if (expectedWidth > reqWidth)
-        {
-            inSampleSize = Math.round((float)width / (float)reqWidth);
-        }
-
-        options.inSampleSize =inSampleSize;
-
-        // Decode bitmap with inSampleSize set
-        options.inJustDecodeBounds = false;
-        return BitmapFactory.decodeFile(path, options);
-    }
-
-    class ConvertBitMapToString extends AsyncTask<Bitmap,Void,String> {
-        ProgressDialog loading;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            loading = ProgressDialog.show(TakeDefectPictureActivity.this, "Convert Image", "Please wait...",true,true);
-        }
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            imageText = s;
-            Intent it = new Intent(TakeDefectPictureActivity.this,ConfirmDefectActivity.class);
-            it.putExtra("image", selectedImage);
-            loading.dismiss();
-        }
-        @Override
-        protected String doInBackground(Bitmap... params) {
-            Bitmap bitmap = params[0];
-            return getStringImage(bitmap);
-        }
-
     }
 }

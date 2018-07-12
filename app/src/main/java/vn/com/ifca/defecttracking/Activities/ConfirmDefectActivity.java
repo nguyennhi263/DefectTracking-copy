@@ -6,15 +6,12 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,7 +28,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -40,30 +36,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
 import vn.com.ifca.defecttracking.Adapter.ContractorSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.DefectItemConfirmAdapter;
-import vn.com.ifca.defecttracking.Adapter.UserSpinAdapter;
 import vn.com.ifca.defecttracking.MainActivity;
 import vn.com.ifca.defecttracking.Model.Contractor;
 import vn.com.ifca.defecttracking.Model.Defect;
 import vn.com.ifca.defecttracking.Model.DefectDBManager;
 import vn.com.ifca.defecttracking.Model.DefectItem;
 import vn.com.ifca.defecttracking.Model.SessionManager;
-import vn.com.ifca.defecttracking.Model.User;
 import vn.com.ifca.defecttracking.Model.ipconfig;
 import vn.com.ifca.defecttracking.R;
 
 public class ConfirmDefectActivity extends AppCompatActivity {
     Button submitDefect,addDefectItem;
     Bitmap bitmapText;
-    ImageView imageView;
     DefectItem defectItem;
     HashMap<String, String> defect,user;
     ipconfig ipconfig;
     SessionManager sessionManager;
     TextView txtLocation;
-    EditText txtNote;
     ArrayList<Contractor> listContractor;
     Spinner contractorSpin;
     String defectID;
@@ -78,7 +69,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_confirm_defect);
         // back button on tool bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         ipconfig = new ipconfig();
         txtLocation = (TextView) findViewById(R.id.txtLocation) ;
         submitDefect = (Button) findViewById(R.id.submitDefectBtn);
@@ -120,18 +110,12 @@ public class ConfirmDefectActivity extends AppCompatActivity {
 
                 // show dialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(ConfirmDefectActivity.this);
-                //thiết lập tiêu đề cho Dialog
                 builder.setTitle("!!!");
                 builder.setCancelable(false);
                 builder.setMessage("Defect will be assigned automatic?");
-
-                //   builder.setIcon(R.mipmap.ic_launcher);
-
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //postNewDefect.execute(imageText,loc,des,trade,userID,note,"null");
-                        //function insert_defectItem($headerID,$image,$tradeDesID,$tradeID,$note,$contractorID,$placeID)
                         String defectJson= null;
                         try {
                             defectJson = new PostDefectHeader().execute(unitID,userID).get();
@@ -205,7 +189,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
                                 } catch (ExecutionException e) {
                                     e.printStackTrace();
                                 }
-                              //  new PostNewDefect().execute(defectID,imageText,tradeDesID,tradeID,note,contractorID,placeID);
                                 for (int i=0;i<listDefetItem.size();i++){
                                     Defect defect = listDefetItem.get(i);
                                     String imageText = "null";
@@ -243,9 +226,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
             }
         });
     }
-    public void write_note(View v){
-        txtNote.setVisibility(View.VISIBLE);
-    }
     /*-------------------------------------INTENT ACTIVYTI------------------------------------*/
     public void go_to_back_screen(View v){
         finish();
@@ -254,7 +234,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
     public void go_to_home_screen(View v){
         finish();
         startActivity(new Intent(ConfirmDefectActivity.this,MainActivity.class));
-
     }
     @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
@@ -267,28 +246,14 @@ public class ConfirmDefectActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    /*--------------------------------END INTENT ACTIVYTI--------------------------------------*/
-    public Bitmap StringToBitMap(String encodedString){
-        try{
-            byte [] encodeByte= Base64.decode(encodedString,Base64.DEFAULT);
-            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            return bitmap;
-        }catch(Exception e){
-            e.getMessage();
-            return null;
-        }
-    }
     class PostDefectHeader extends AsyncTask<String,Void,String> {
         private String UPLOAD_URL =ipconfig.getIpconfig();
-
         ProgressDialog loading;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             loading = ProgressDialog.show(ConfirmDefectActivity.this, "Uploading data", "Please wait...",true,true);
         }
-
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
@@ -303,7 +268,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
                 }
             }
         }
-
         @Override
         protected String doInBackground(String... params) {
 
@@ -312,7 +276,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
                 String userid = params [1];
                 HttpClient client = new DefaultHttpClient();
                 HttpPost post = new HttpPost(UPLOAD_URL);
-                //Gán tham số vào giá trị gửi
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("insert_defectHeader", "1"));
                 valuePairs.add(new BasicNameValuePair("UnitId", unitID));
@@ -343,14 +306,12 @@ public class ConfirmDefectActivity extends AppCompatActivity {
     class PostNewDefect extends AsyncTask<String,Void,String> {
         private String UPLOAD_URL =ipconfig.getIpconfig();
         ProgressDialog loading;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             loading = ProgressDialog.show(ConfirmDefectActivity.this,
                     "Uploading data", "Please wait...",true,true);
         }
-
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
@@ -359,29 +320,14 @@ public class ConfirmDefectActivity extends AppCompatActivity {
                 defectItem.clear();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
                 defectItem.clear();
-               /* AlertDialog.Builder builder = new AlertDialog.Builder(ConfirmDefectActivity.this);
-                builder.setTitle("Post Defect success!!");
-                builder.setCancelable(false);
-                builder.setMessage("");
-
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(ConfirmDefectActivity.this,MainActivity.class));
-                    }
-                });
-                builder.create().show();*/
-                defectItem.clear();
             }
             else {
                 Toast.makeText(ConfirmDefectActivity.this,
                         "Something wrong, check it again",Toast.LENGTH_SHORT).show();
             }
         }
-
         @Override
         protected String doInBackground(String... params) {
-
             try {
                 String headerID = params[0];
                 String image = params[1];
@@ -422,7 +368,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
             return null;
         }
     }
-
     /*-------------------------------GET LIST Contractor-------------------------------*/
     private class GetListContractor extends AsyncTask<String, Void, String> {
         ipconfig ip= new ipconfig();
@@ -432,7 +377,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
         }
-
         @Override
         protected String doInBackground(String... params) {
             try {
@@ -456,7 +400,6 @@ public class ConfirmDefectActivity extends AppCompatActivity {
                 return e.toString();
             }
         }
-
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
@@ -483,5 +426,4 @@ public class ConfirmDefectActivity extends AppCompatActivity {
             }
         }
     }
-
 }
