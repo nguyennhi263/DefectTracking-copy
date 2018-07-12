@@ -140,10 +140,6 @@ public class TakeDefectPictureActivity extends AppCompatActivity {
                 imageViewT.setVisibility(View.VISIBLE);
                 clearBtn.setVisibility(View.VISIBLE);
                 saveBtn.setVisibility(View.VISIBLE);
-               /* File file = new File(Environment.getExternalStorageDirectory()+File.separator +
-                        "image.jpg");
-                Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 500, 250);
-                bmp = RotateBitmap(bitmap,90);*/
                 Bitmap bitmap = (Bitmap) data.getExtras().get("data");
                 imageViewT.setImageBitmap(bitmap);
             }

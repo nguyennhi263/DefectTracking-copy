@@ -48,7 +48,6 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
         // Session Manager Class
         session = new SessionManager(getApplicationContext());
-
         txtname = (EditText) findViewById(R.id.txtUsername);
         txtpass = (EditText) findViewById(R.id.txtPassword);
         loginbtn = (CardView) findViewById(R.id.LoginBtn);
@@ -60,16 +59,12 @@ public class LogInActivity extends AppCompatActivity {
                 //get id,pass from edit text
                 String name = txtname.getText().toString().trim();
                 final String password = txtpass.getText().toString().trim();
-                //neu email rong
                 if(TextUtils.isEmpty(name)){
                     Toast.makeText(LogInActivity.this, "Enter your username", Toast.LENGTH_SHORT).show();
-                    //dung chuong trinh lai
                     return;
                 }
-                //neu password rong
                 if(TextUtils.isEmpty(password)){
                     Toast.makeText(LogInActivity.this, "Enter your password", Toast.LENGTH_SHORT).show();
-                    //dung chuong trinh lai
                     return;
                 }
                 new   CheckLogin().execute(name,password);
@@ -81,14 +76,11 @@ public class LogInActivity extends AppCompatActivity {
         ipconfig ip= new ipconfig();
         String ips= ip.getIpconfig();
         String URL = ips;
-
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             progressLogin.setVisibility(View.VISIBLE);
         }
-
         @Override
         protected String doInBackground(String... params) {
             try {
@@ -110,23 +102,19 @@ public class LogInActivity extends AppCompatActivity {
                     result +=line;
                 }
                 return result;
-
             }catch (Exception e){
                 return e.toString();
             }
         }
-
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             if (!s.equals("false"))
             {
                 try {
-                    JSONArray mang = new JSONArray(s);
-
-                    for (int i= 0; i<mang.length();  i++){
-                        JSONObject cur = mang.getJSONObject(i);
-
+                    JSONArray array = new JSONArray(s);
+                    for (int i= 0; i<array.length();  i++){
+                        JSONObject cur = array.getJSONObject(i);
                         String UserID = cur.getString("UserID");
                         String Level = cur.getString("PositionName");
                         String Username = cur.getString("LoginName");

@@ -122,13 +122,8 @@ public class SelectTradeActivity extends AppCompatActivity {
         final Description curDes = (Description) spDescription.getSelectedItem();
         final Trade curTrade = (Trade) spTrade.getSelectedItem();
         final DefectPlace curDefectPlace = (DefectPlace) spDefectPlace.getSelectedItem();
-
-        //defectItem.addDescription(curDes.getDescriptionID(), curDes.getDetail());
-        //defectItem.addTrade(curTrade.getTradeID(),curTrade.getTradeName(),curDefectPlace.getID());
         final DefectDBManager defectDBManager = new DefectDBManager(getApplicationContext());
         defectDBManager.open();
-
-
         // show dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(SelectTradeActivity.this);
         builder.setTitle("Would you like to attach picture?");
@@ -136,7 +131,6 @@ public class SelectTradeActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 long defectItemInserted = defectDBManager.getIDinserted(curDefectPlace.getID(),curDefectPlace.getDefectPlaceName(),
                         curTrade.getTradeID(),curTrade.getTradeName(),curDes.getDescriptionID(),curDes.getDetail());
 
@@ -145,7 +139,7 @@ public class SelectTradeActivity extends AppCompatActivity {
                 bundle.putInt("DefectItemID",(int)defectItemInserted);
                 intent.putExtras(bundle);
                 startActivity(intent);
-               // finish();
+                finish();
                 defectDBManager.close();
             }
         });
@@ -166,7 +160,7 @@ public class SelectTradeActivity extends AppCompatActivity {
     public void finish(){
         this.finish();
     }
-    public void got_to_back_screen(View v){
+    public void go_to_back_screen(View v){
         super.onBackPressed();
         this.finish();
     }
@@ -198,19 +192,13 @@ public class SelectTradeActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                //Khởi tạo đối tượng client
                 HttpClient client = new DefaultHttpClient();
-                //Đối tượng chứa nội dung cần gửi
                 HttpPost post = new HttpPost(URL);
-                //Gán tham số vào giá trị gửi
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("get_contend", params[0]));
                 valuePairs.add(new BasicNameValuePair("table", params[1]));
-
-                //Gán nội dung lên form
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
-                //Đón nhận kết quả
                 HttpResponse response = client.execute(post);
                 InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -230,12 +218,10 @@ public class SelectTradeActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
 
             super.onPostExecute(s);
-            //Kết quả trả về
             if (!s.equals("Wrong"))
             {
                 try {
                     JSONArray mang = new JSONArray(s);
-
                     for (int i= 0; i<mang.length();  i++){
                         JSONObject cur = mang.getJSONObject(i);
                         String TradeTypeID = cur.getString("TradeTypeID");
@@ -273,19 +259,14 @@ public class SelectTradeActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                //Khởi tạo đối tượng client
                 HttpClient client = new DefaultHttpClient();
-                //Đối tượng chứa nội dung cần gửi
                 HttpPost post = new HttpPost(URL);
-                //Gán tham số vào giá trị gửi
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("get_contend", params[0]));
                 valuePairs.add(new BasicNameValuePair("table", params[1]));
                 valuePairs.add(new BasicNameValuePair("command", params[2]));
-                //Gán nội dung lên form
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
-                //Đón nhận kết quả
                 HttpResponse response = client.execute(post);
                 InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -305,7 +286,6 @@ public class SelectTradeActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
 
             super.onPostExecute(s);
-            //Kết quả trả về
             if (!s.equals("Empty"))
             {
                 try {
@@ -349,19 +329,14 @@ public class SelectTradeActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                //Khởi tạo đối tượng client
                 HttpClient client = new DefaultHttpClient();
-                //Đối tượng chứa nội dung cần gửi
                 HttpPost post = new HttpPost(URL);
-                //Gán tham số vào giá trị gửi
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("get_contend", params[0]));
                 valuePairs.add(new BasicNameValuePair("table", params[1]));
                 valuePairs.add(new BasicNameValuePair("command", params[2]));
-                //Gán nội dung lên form
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
-                //Đón nhận kết quả
                 HttpResponse response = client.execute(post);
                 InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -379,7 +354,6 @@ public class SelectTradeActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
 
             super.onPostExecute(s);
-            //Kết quả trả về
             if (!s.equals("Empty"))
             {
                 try {
@@ -423,18 +397,13 @@ public class SelectTradeActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                //Khởi tạo đối tượng client
                 HttpClient client = new DefaultHttpClient();
-                //Đối tượng chứa nội dung cần gửi
                 HttpPost post = new HttpPost(URL);
-                //Gán tham số vào giá trị gửi
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("get_contend",""));
                 valuePairs.add(new BasicNameValuePair("table", "DefectPlace"));
-                //Gán nội dung lên form
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
-                //Đón nhận kết quả
                 HttpResponse response = client.execute(post);
                 InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);

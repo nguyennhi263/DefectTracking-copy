@@ -194,7 +194,7 @@
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/Orange"
-            android:onClick="got_to_back_screen"
+            android:onClick="go_to_back_screen"
             android:text="@string/backBtn" />
 
         <Button

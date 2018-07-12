@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,13 +22,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-
 import vn.com.ifca.defecttracking.Adapter.BlockSpinAdapter;
 import vn.com.ifca.defecttracking.Adapter.FloorAdapter;
 import vn.com.ifca.defecttracking.Adapter.PhaseSpinAdapter;
@@ -41,7 +36,6 @@ import vn.com.ifca.defecttracking.Model.DefectItem;
 import vn.com.ifca.defecttracking.Model.Floor;
 import vn.com.ifca.defecttracking.Model.Phase;
 import vn.com.ifca.defecttracking.Model.Project;
-import vn.com.ifca.defecttracking.Model.SessionManager;
 import vn.com.ifca.defecttracking.Model.Unit;
 import vn.com.ifca.defecttracking.Model.ipconfig;
 import vn.com.ifca.defecttracking.R;
@@ -58,7 +52,6 @@ public class SelectUnitActivity extends AppCompatActivity {
     Spinner spPhase,spBlock,spUnit,spFloor, spProject;
     UnitAdapter customAdapter;
     FloorAdapter floorAdapter;
-    //ArrayAdapter<String> floorAdapter;
     Unit cur;
     String projectCur,phaseCur,blockCur;
 
@@ -68,7 +61,7 @@ public class SelectUnitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_unit);
         // back button on tool bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        //initial
         spPhase = (Spinner) findViewById(R.id.spPhase);
         spBlock = (Spinner) findViewById(R.id.spBlock);
         spUnit = (Spinner) findViewById(R.id.spUnit);
@@ -81,12 +74,9 @@ public class SelectUnitActivity extends AppCompatActivity {
         listProject = new ArrayList<>();
         customAdapter = new UnitAdapter(getApplicationContext(),listUnit);
         floorAdapter = new FloorAdapter(getApplicationContext(),listFloor);
-       // floorAdapter=new ArrayAdapter<String>(SelectUnitActivity.this, android.R.layout.simple_spinner_item, listFloor);
-       // floorAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         defectItem = new DefectItem(getApplicationContext());
-
-
         new GetProject().execute("Project","");
+
        spProject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -114,7 +104,6 @@ public class SelectUnitActivity extends AppCompatActivity {
                 phaseCur = phase.getPhaseDesc();
                 new GetBlock().execute("Block",phase.getPhaseID());
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 listBlock.clear();
@@ -129,7 +118,6 @@ public class SelectUnitActivity extends AppCompatActivity {
                 blockCur = block.getBlockName();
                 new GetFloor().execute(block.getBlockID());
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -142,7 +130,6 @@ public class SelectUnitActivity extends AppCompatActivity {
                 Block cur = (Block) spBlock.getSelectedItem();
                 new GetUnit().execute("Unit",cur.getBlockID(),floor.getFloorID());
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -272,7 +259,6 @@ public class SelectUnitActivity extends AppCompatActivity {
         ipconfig ip= new ipconfig();
         String ips= ip.getIpconfig();
         String URL = ips;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -341,20 +327,14 @@ public class SelectUnitActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                //Khởi tạo đối tượng client
                 HttpClient client = new DefaultHttpClient();
-                //Đối tượng chứa nội dung cần gửi
                 HttpPost post = new HttpPost(URL);
-                //Gán tham số vào giá trị gửi
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("get_contend", "1"));
                 valuePairs.add(new BasicNameValuePair("table", params[0]));
                 valuePairs.add(new BasicNameValuePair("command", params[1]));
-
-
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
-                //Đón nhận kết quả
                 HttpResponse response = client.execute(post);
                 InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -372,9 +352,7 @@ public class SelectUnitActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            //    Toast.makeText(CreateNewTrade.this,s,Toast.LENGTH_SHORT).show();
             super.onPostExecute(s);
-            //Kết quả trả về
             if (!s.equals("Empty"))
             {
                 try {
@@ -438,17 +416,13 @@ public class SelectUnitActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            //    Toast.makeText(CreateNewTrade.this,s,Toast.LENGTH_SHORT).show();
             super.onPostExecute(s);
-            //Kết quả trả về
             if (!s.equals("Empty")) {
                 try {
                     JSONObject array = new JSONObject(s);
-                    //  Toast.makeText(CreateNewTrade.this,mang.getString("numsize"),Toast.LENGTH_SHORT).show();
                     int length = Integer.parseInt(array.getString("numsize"));
                     listFloor.clear();
                     for (int i= 1;i<=length;i++){
-
                         Floor cur = new Floor(array.getString(i+""));
                         listFloor.add(cur);
                     }
@@ -477,20 +451,15 @@ public class SelectUnitActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                //Khởi tạo đối tượng client
                 HttpClient client = new DefaultHttpClient();
-                //Đối tượng chứa nội dung cần gửi
                 HttpPost post = new HttpPost(URL);
-                //Gán tham số vào giá trị gửi
                 List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
                 valuePairs.add(new BasicNameValuePair("get_contend","0"));
                 valuePairs.add(new BasicNameValuePair("table", params[0]));
                 valuePairs.add(new BasicNameValuePair("command", params[1]));
                 valuePairs.add(new BasicNameValuePair("command2", params[2]));
-                //Gán nội dung lên form
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(valuePairs);
                 post.setEntity(entity);
-                //Đón nhận kết quả
                 HttpResponse response = client.execute(post);
                 InputStreamReader inputStreamReader = new InputStreamReader(response.getEntity().getContent(), "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -506,9 +475,7 @@ public class SelectUnitActivity extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(String s) {
-            //    Toast.makeText(CreateNewTrade.this,s,Toast.LENGTH_SHORT).show();
             super.onPostExecute(s);
-            //Kết quả trả về
             if (!s.equals("Empty"))
             {
                 try {
